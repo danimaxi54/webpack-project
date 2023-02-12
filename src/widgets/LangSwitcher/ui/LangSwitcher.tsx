@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
-import {classNames} from "shared/lib/classNames/classNames";
+import React, { FC } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useTranslation } from 'react-i18next';
+import Button, { ThemeButton } from 'shared/ui/Button/Button';
 import cls from './LangSwitcher.module.scss';
-import {useTranslation} from "react-i18next";
-import Button, { ThemeButton } from "shared/ui/Button/Button";
 
 interface LangSwitcherProps {
     className?: string;
@@ -10,7 +10,7 @@ interface LangSwitcherProps {
 
 const LangSwitcher: FC<LangSwitcherProps> = (props) => {
     const {
-        className
+        className,
     } = props;
 
     const { t, i18n } = useTranslation();
