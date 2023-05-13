@@ -10,5 +10,8 @@
   "Обновить страницу": "Reload page",
   "Короткий язык": "Ru",
   "Увеличить": "Increment",
-  "Уменьшить": "Decrement"
+  "Уменьшить": "Decrement",
+  "Войти": "Login",
+  "Введите username": "Enter username",
+  "Введите password": "Enter password"
 }
