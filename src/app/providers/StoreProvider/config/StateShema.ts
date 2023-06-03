@@ -6,7 +6,7 @@ import {
 } from '@reduxjs/toolkit';
 
 export interface StateSchema {
-    counter: CounterSchema
+    counter: CounterSchema;
     user: UserSchema;
 
     // Асинхронные редюсеры
