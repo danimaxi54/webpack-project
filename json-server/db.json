@@ -6,7 +6,7 @@
     { "id": "1", "body": "some comment", "postId":"1" }
   ],
   "profile": {
-    "name": "Даниил",
+    "firstname": "Даниил",
     "lastname": "Иванов",
     "age": 21,
     "currency": "RUB",

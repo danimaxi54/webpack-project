@@ -56,9 +56,11 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies,
         'no-param-reassign': 'off',
         'react/jsx-no-useless-fragment': 'off',
+        'no-undef': 'off',
     },
     globals: {
         __IS_DEV__: true,
+        __API__: true,
     },
     overrides: [
         {
