@@ -27,7 +27,7 @@ const options = [
 ];
 
 const CurrencySelect: FC<CurrencySelectProps> = (props) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('profile');
 
     const {
         className,

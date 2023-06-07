@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Avatar from './Avatar';
 
-import MockImage from './mock-image.jpg';
+import StorybookImage from '../../assets/tests/storybook.jpg';
 
 export default {
     title: 'shared/Avatar',
@@ -14,12 +14,12 @@ export const Primary = Template.bind({});
 Primary.args = {
     alt: 'Image',
     size: 150,
-    src: MockImage,
+    src: StorybookImage,
 };
 
 export const Small = Template.bind({});
 Small.args = {
     alt: 'Image',
     size: 50,
-    src: MockImage,
+    src: StorybookImage,
 };

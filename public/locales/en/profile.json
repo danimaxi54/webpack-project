@@ -11,5 +11,10 @@
   "Имя пользователя": "Your nickname",
   "Введите ссылку на аватар": "Link to avatar image",
   "Укажите валюту": "Enter your currency",
-  "Укажите страну": "Enter your country"
+  "Укажите страну": "Enter your country",
+  "Серверная ошибка при создании": "Server error during creation",
+  "Некорректный регион": "Incorrect region",
+  "Данные не указаны": "Data is not specified",
+  "Имя и фамилия обязательны": "First and last name are required",
+  "Некорректный возраст": "Incorrect age"
 }

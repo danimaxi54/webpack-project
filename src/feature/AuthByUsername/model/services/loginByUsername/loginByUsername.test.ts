@@ -1,9 +1,18 @@
 import { TestAsyncThunk } from 'shared/config/tests/TestAsyncThunk/TestAsyncThunk';
 import { loginByUsername } from 'feature/AuthByUsername/model/services/loginByUsername/loginByUsername';
 import { userActions } from 'entities/User';
+import { Dispatch } from '@reduxjs/toolkit';
+import { StateSchema } from 'app/providers/StoreProvider';
 
 describe('login by username', () => {
     // Вариант тестов номер 1
+    // let dispatch: Dispatch;
+    // let getState: () => StateSchema;
+    //
+    // beforeEach(() => {
+    //     dispatch = jest.fn();
+    //     getState = jest.fn();
+    // });
     // test('success login', async () => {
     //     const userValue = { username: '1234', id: '1' };
     //

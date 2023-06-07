@@ -35,7 +35,7 @@ const options = [
 ];
 
 const CountrySelect: FC<CurrencySelectProps> = (props) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('profile');
 
     const {
         className,
@@ -51,7 +51,7 @@ const CountrySelect: FC<CurrencySelectProps> = (props) => {
     return (
         <Select
             className={classNames('', {}, [className])}
-            label={t('Укажите валюту')}
+            label={t('Укажите страну')}
             options={options}
             onChange={onChangeHandler}
             value={value}

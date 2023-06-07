@@ -84,7 +84,7 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
             {
                 id: 2,
                 value: data?.lastname,
-                placeholder: t('Ваше фамилия'),
+                placeholder: t('Ваша фамилия'),
                 onChange: onChangeLastname,
             },
             {
