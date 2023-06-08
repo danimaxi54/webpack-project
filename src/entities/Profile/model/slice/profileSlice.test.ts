@@ -59,6 +59,7 @@ describe('profileSlice.test', () => {
         const state: DeepPartial<ProfileSchema> = {
             isLoading: false,
             validateError: [ValidateProfileError.SERVER_ERROR],
+            readonly: false,
         };
 
         expect(profileReducer(
@@ -67,6 +68,7 @@ describe('profileSlice.test', () => {
         )).toEqual({
             isLoading: true,
             validateError: undefined,
+            readonly: true,
         });
     });
 
