@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, useMemo } from 'react';
 import { Provider } from 'react-redux';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { useNavigate } from 'react-router-dom';
@@ -20,11 +20,11 @@ const StoreProvider: FC<StoreProviderProps> = (props) => {
 
     const navigate = useNavigate();
 
-    const store = createReduxStore(
+    const store = useMemo(() => createReduxStore(
         initialState as StateSchema,
         asyncReducers as ReducersMapObject<StateSchema>,
         navigate,
-    );
+    ), []);
 
     return (
         <Provider store={store}>{children}</Provider>
