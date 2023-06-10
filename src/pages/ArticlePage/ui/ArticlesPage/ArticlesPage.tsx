@@ -1,13 +1,12 @@
 import { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import cls from './ArticlePage.module.scss';
 
 interface ArticlePageProps {
     className?: string;
 }
 
-const ArticlePage: FC<ArticlePageProps> = (props) => {
+const ArticlesPage: FC<ArticlePageProps> = (props) => {
     const { t } = useTranslation('article');
 
     const {
@@ -15,10 +14,8 @@ const ArticlePage: FC<ArticlePageProps> = (props) => {
     } = props;
 
     return (
-        <div className={classNames(cls.ArticlePage, {}, [className])}>
-            Articles page
-        </div>
+        <div className={classNames('', {}, [className])} />
     );
 };
 
-export default ArticlePage;
+export default ArticlesPage;
