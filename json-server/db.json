@@ -97,6 +97,42 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "sdfasfsdfsdfsdf",
+      "id": "av9Ap-L"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "sdfasfsdfsdfsdf",
+      "id": "5JS0VgK"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "sdfasfsdfsdfsdf",
+      "id": "wJuzof2"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "hello wrold",
+      "id": "dYHslqN"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "sdfsdfsdf",
+      "id": "SjY0fu9"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "sdfsdfsdfdf",
+      "id": "m3oE0-6"
     }
   ],
   "users": [
@@ -115,14 +151,29 @@
       "avatar": "https://avatars.githubusercontent.com/u/69904650?s=400&u=2c3a6015db26f57b2f557d1a1ec58bf54a35f573&v=4"
     }
   ],
-  "profile": {
-    "first": "jgh",
-    "lastname": "asf",
-    "age": 465,
-    "currency": "RUB",
-    "country": "Belarus",
-    "city": "Moscow",
-    "username": "admin213",
-    "avatar": "https://avatars.githubusercontent.com/u/69904650?s=400&u=2c3a6015db26f57b2f557d1a1ec58bf54a35f573&v=4"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "jgh",
+      "lastname": "as",
+      "age": 234234324,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moscow",
+      "username": "admin213",
+      "avatar": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+      "firstname": "sd"
+    },
+    {
+      "id": "2",
+      "first": "jgh",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moscow",
+      "username": "admin213",
+      "avatar": "https://avatars.githubusercontent.com/u/69904650?s=400&u=2c3a6015db26f57b2f557d1a1ec58bf54a35f573&v=4"
+    }
+  ]
 }

@@ -19,6 +19,7 @@ import { Country } from 'entities/Country/model/types/country';
 import Text, { TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import ProfilePageHeader from '../ui/ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -32,6 +33,8 @@ interface ProfilePageProps {
 const ProfilePage: FC<ProfilePageProps> = (props) => {
     const { t } = useTranslation('profile');
 
+    const { id } = useParams<{ id: string }>();
+
     const dispatch = useAppDispatch();
     const formData = useSelector(getProfileForm);
     const error = useSelector(getProfileError);
@@ -39,7 +42,7 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
 
-    useInitialEffect(() => dispatch(fetchProfileData()));
+    useInitialEffect(() => id && dispatch(fetchProfileData(id)));
 
     const {
         className,
@@ -88,7 +91,7 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
     };
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <DynamicModuleLoader reducers={reducers}>
             <div className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
 

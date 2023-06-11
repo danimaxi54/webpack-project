@@ -130,7 +130,10 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
 
                 {PROFILE_INPUT.map(((data) => {
                     const {
-                        id, onChange, placeholder, value,
+                        id,
+                        onChange,
+                        placeholder,
+                        value,
                     } = data;
 
                     return (
