@@ -1,20 +1,24 @@
 import { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
+import { ArticleList, ArticleView } from 'entities/Article';
 
 interface ArticlePageProps {
     className?: string;
 }
 
 const ArticlesPage: FC<ArticlePageProps> = (props) => {
-    const { t } = useTranslation('article');
-
     const {
         className,
     } = props;
 
     return (
-        <div className={classNames('', {}, [className])} />
+        <div className={classNames('', {}, [className])}>
+            <ArticleList
+                view={ArticleView.BIG}
+                articles={[]}
+                isLoading
+            />
+        </div>
     );
 };
 

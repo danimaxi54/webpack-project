@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import Text from 'shared/ui/Text/Text';
 import { ArticleTextBlock } from '../../model/types/article';
 import cls from './ArticleTextBlockComponent.module.scss';
@@ -11,8 +10,6 @@ interface ArticleTextBlockComponentProps {
 }
 
 const ArticleTextBlockComponent: FC<ArticleTextBlockComponentProps> = (props) => {
-    const { t } = useTranslation();
-
     const {
         className,
         block,
