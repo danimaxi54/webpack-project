@@ -32,19 +32,13 @@ const ArticleList: FC<ArticleListProps> = (props) => {
         />
     );
 
-    if (isLoading) {
-        return (
-            <div className={cls.ArticleList}>
-                {getSkeletons(view)}
-            </div>
-        );
-    }
-
     return (
         <div className={classNames(cls.ArticleList, {}, [className])}>
             {articles.length
                 ? articles.map(renderArticle)
                 : null}
+
+            {isLoading && getSkeletons(view)}
         </div>
     );
 };

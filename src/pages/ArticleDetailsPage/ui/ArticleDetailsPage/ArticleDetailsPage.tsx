@@ -13,6 +13,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'feature/AddCommentForm';
 import Button, { ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import Page from 'shared/ui/Page/Page';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
@@ -61,25 +62,27 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames('', {}, [className])}>
-                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
-                    {t('Назад к списку')}
-                </Button>
+            <Page>
+                <div className={classNames('', {}, [className])}>
+                    <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
+                        {t('Назад к списку')}
+                    </Button>
 
-                <ArticleDetails id={id} />
+                    <ArticleDetails id={id} />
 
-                <Text
-                    title={t('Комментарии')}
-                    className={cls.commentTitle}
-                />
+                    <Text
+                        title={t('Комментарии')}
+                        className={cls.commentTitle}
+                    />
 
-                <AddCommentForm onSendComment={onSendComment} />
+                    <AddCommentForm onSendComment={onSendComment} />
 
-                <CommentList
-                    comments={comments}
-                    isLoading={commentsIsLoading}
-                />
-            </div>
+                    <CommentList
+                        comments={comments}
+                        isLoading={commentsIsLoading}
+                    />
+                </div>
+            </Page>
         </DynamicModuleLoader>
 
     );
