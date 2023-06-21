@@ -18,13 +18,13 @@ const StoreProvider: FC<StoreProviderProps> = (props) => {
         asyncReducers,
     } = props;
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    const store = useMemo(() => createReduxStore(
+    const store = createReduxStore(
         initialState as StateSchema,
         asyncReducers as ReducersMapObject<StateSchema>,
-        navigate,
-    ), []);
+        // navigate,
+    );
 
     return (
         <Provider store={store}>{children}</Provider>
