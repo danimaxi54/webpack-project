@@ -9,7 +9,7 @@ import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'feature/AddCommentForm';
-import { ArticlePageSchema } from 'pages/ArticlePage';
+import { ArticlePageSchema } from 'pages/ArticlesPage';
 import { PageSchema } from 'widgets/Page';
 
 export interface StateSchema {

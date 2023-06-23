@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import ArticleListItemSkeleton from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
+import Text, { TextSize } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 import ArticleListItem from '../ArticleListItem/ArticleListItem';
 import { Article, ArticleView } from '../../model/types/article';
 import cls from './ArticleList.module.scss';
@@ -17,6 +19,8 @@ const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL
 ));
 
 const ArticleList: FC<ArticleListProps> = (props) => {
+    const { t } = useTranslation('articles');
+
     const {
         className,
         articles,
@@ -31,6 +35,14 @@ const ArticleList: FC<ArticleListProps> = (props) => {
             view={view}
         />
     );
+
+    if (!isLoading && !articles.length) {
+        return (
+            <div className={classNames(cls.ArticleList, {}, [className])}>
+                <Text title={t('Статьи не найдены')} size={TextSize.L} />
+            </div>
+        );
+    }
 
     return (
         <div className={classNames(cls.ArticleList, {}, [className])}>
