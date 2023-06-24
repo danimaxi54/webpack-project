@@ -5,3 +5,9 @@
 .commentTitle {
     margin-top: 20px;
 }
+
+.recommendations {
+    flex-wrap: nowrap;
+    margin-top: 20px;
+    overflow: auto hidden;
+}

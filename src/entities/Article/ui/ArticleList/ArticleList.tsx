@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, HTMLAttributeAnchorTarget } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import ArticleListItemSkeleton from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 import Text, { TextSize } from 'shared/ui/Text/Text';
@@ -12,6 +12,7 @@ interface ArticleListProps {
     articles: Article[]
     isLoading?: boolean;
     view?: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3).fill(0).map((item, index) => (
@@ -26,6 +27,7 @@ const ArticleList: FC<ArticleListProps> = (props) => {
         articles,
         view = ArticleView.SMALL,
         isLoading,
+        target,
     } = props;
 
     const renderArticle = (article: Article) => (
@@ -33,6 +35,7 @@ const ArticleList: FC<ArticleListProps> = (props) => {
             key={article.id}
             article={article}
             view={view}
+            target={target}
         />
     );
 
