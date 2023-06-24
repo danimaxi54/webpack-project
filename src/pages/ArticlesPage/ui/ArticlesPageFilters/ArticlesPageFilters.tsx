@@ -46,31 +46,35 @@ const ArticlesPageFilters: FC<ArticlePageFiltersProps> = (props) => {
     const search = useSelector(getArticlesPageSearch);
     const type = useSelector(getArticlesPageType);
 
-    const fetchData = useDebounce(() => {
+    const debouncedFetchData = useDebounce(() => {
         dispatch(fetchArticlesList({ replace: true }));
     }, 500);
 
+    const fetchData = () => {
+        dispatch(fetchArticlesList({ replace: true }));
+    };
+
     const onChangeView = (view: ArticleView) => {
         dispatch(articlesPageActions.setView(view));
-        fetchData();
+        debouncedFetchData();
     };
 
     const onChangeSort = (newSort: ArticleSortField) => {
         dispatch(articlesPageActions.setSort(newSort));
         dispatch(articlesPageActions.setPage(1));
-        fetchData();
+        debouncedFetchData();
     };
 
     const onChangeOrder = (newOrder: SortOrder) => {
         dispatch(articlesPageActions.setOrder(newOrder));
         dispatch(articlesPageActions.setPage(1));
-        fetchData();
+        debouncedFetchData();
     };
 
     const onChangeSearch = (search: string) => {
         dispatch(articlesPageActions.setSearch(search));
         dispatch(articlesPageActions.setPage(1));
-        fetchData();
+        debouncedFetchData();
     };
 
     const onChangeType = (tab: TabItem<ArticleType>) => {
