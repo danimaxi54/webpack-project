@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails, ArticleList } from 'entities/Article';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Text, { TextSize } from 'shared/ui/Text/Text';
 import { CommentList } from 'entities/Comment';
 
@@ -11,12 +11,11 @@ import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'feature/AddCommentForm';
-import Button, { ButtonTheme } from 'shared/ui/Button/Button';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import Page from 'widgets/Page/ui/Page';
 import {
     getArticleRecommendationsIsLoading,
 } from 'pages/ArticleDetailsPage/model/selectors/recommendations';
+import ArticleDetailsPageHeader from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ui/ArticleDetailsPageHeader';
 import { articleDetailsPageReducer } from '../../model/slice';
 import {
     fetchArticlesRecommendations,
@@ -42,7 +41,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     const { t } = useTranslation('article-details');
 
     const dispatch = useAppDispatch();
-    const navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
 
     const comments = useSelector(getArticleComments.selectAll);
@@ -63,10 +61,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
         dispatch(addCommentForArticle(value));
     };
 
-    const onBackToList = () => {
-        navigate(RoutePath.articles);
-    };
-
     if (!id) {
         return (
             <div className={classNames('', {}, [className])}>
@@ -79,9 +73,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
         <DynamicModuleLoader reducers={reducers}>
             <Page>
                 <div className={classNames('', {}, [className])}>
-                    <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
-                        {t('Назад к списку')}
-                    </Button>
+                    <ArticleDetailsPageHeader />
 
                     <ArticleDetails id={id} />
 

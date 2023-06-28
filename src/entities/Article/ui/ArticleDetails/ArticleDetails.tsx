@@ -16,7 +16,7 @@ import ArticleTextBlockComponent from '../ArticleTextBlockComponent/ArticleTextB
 import ArticleCodeBlockComponent from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import {
-    getArticleDetails,
+    getArticleDetailsData,
     getArticleDetailsError,
     getArticleDetailsIsLoading,
 } from '../../model/selectors/articleDetails';
@@ -38,7 +38,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
     const dispatch = useAppDispatch();
 
     const isLoading = useSelector(getArticleDetailsIsLoading);
-    const article = useSelector(getArticleDetails);
+    const article = useSelector(getArticleDetailsData);
     const error = useSelector(getArticleDetailsError);
 
     const {

@@ -1,6 +1,6 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 import {
-    getArticleDetails,
+    getArticleDetailsData,
     getArticleDetailsError,
     getArticleDetailsIsLoading,
 } from '../../model/selectors/articleDetails';
@@ -18,7 +18,7 @@ describe('articleDetails.test', () => {
             },
         };
 
-        expect(getArticleDetails(state as StateSchema)).toEqual(data);
+        expect(getArticleDetailsData(state as StateSchema)).toEqual(data);
     });
 
     test('should return isLoading', () => {
@@ -34,7 +34,7 @@ describe('articleDetails.test', () => {
     test('should work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
 
-        expect(getArticleDetails(state as StateSchema)).toEqual(undefined);
+        expect(getArticleDetailsData(state as StateSchema)).toEqual(undefined);
     });
 
     test('should return error', () => {
