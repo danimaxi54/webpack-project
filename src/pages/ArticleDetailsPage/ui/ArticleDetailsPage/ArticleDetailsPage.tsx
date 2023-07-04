@@ -12,10 +12,10 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'feature/AddCommentForm';
 import Page from 'widgets/Page/ui/Page';
+import ArticleDetailsPageHeader from '../ArticleDetailsPageHeader/ui/ArticleDetailsPageHeader';
 import {
     getArticleRecommendationsIsLoading,
-} from 'pages/ArticleDetailsPage/model/selectors/recommendations';
-import ArticleDetailsPageHeader from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ui/ArticleDetailsPageHeader';
+} from '../../model/selectors/recommendations';
 import { articleDetailsPageReducer } from '../../model/slice';
 import {
     fetchArticlesRecommendations,

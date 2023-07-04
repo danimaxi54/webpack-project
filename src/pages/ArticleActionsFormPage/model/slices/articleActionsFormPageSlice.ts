@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ArticleActionsFormPageSchema } from 'pages/ArticleActionsFormPage';
+import { ArticleActionsFormPageSchema } from '../types/articleActionsFormPageSchema';
 
 const initialState: ArticleActionsFormPageSchema = {
     isLoading: false,
