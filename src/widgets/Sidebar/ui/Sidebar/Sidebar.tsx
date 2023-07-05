@@ -27,7 +27,7 @@ const Sidebar: FC<SidebarProps> = (props) => {
     };
 
     return (
-        <menu
+        <aside
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
@@ -46,6 +46,7 @@ const Sidebar: FC<SidebarProps> = (props) => {
             <VStack
                 className={cls.items}
                 gap="8"
+                role="navigation"
             >
                 {sidebarItemsList.map((item) => (
                     <SidebarItem
@@ -61,7 +62,7 @@ const Sidebar: FC<SidebarProps> = (props) => {
 
                 <LangSwitcher className={cls.lang} short={collapsed} />
             </div>
-        </menu>
+        </aside>
     );
 };
 
