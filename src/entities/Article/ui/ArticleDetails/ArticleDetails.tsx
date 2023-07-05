@@ -11,6 +11,7 @@ import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
 import Icon from 'shared/ui/Icon/Icon';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { HStack, VStack } from 'shared/ui/Stack';
 import ArticleImageBlockComponent from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import ArticleTextBlockComponent from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import ArticleCodeBlockComponent from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
@@ -129,31 +130,46 @@ const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
     } else {
         content = (
             <>
-                <div className={cls.avatarWrapper}>
+                <HStack
+                    className={cls.avatarWrapper}
+                    justify="center"
+                    max
+                >
                     <Avatar
                         size={200}
                         src={article?.img}
                         className={cls.avatar}
                     />
-                </div>
+                </HStack>
 
-                <Text
-                    title={article?.title}
-                    text={article?.subtitle}
-                    size={TextSize.L}
-                />
+                <VStack
+                    gap="4"
+                    max
+                >
+                    <Text
+                        title={article?.title}
+                        text={article?.subtitle}
+                        size={TextSize.L}
+                    />
 
-                <div className={cls.articleInfo}>
-                    <Icon Svg={EyeIcon} className={cls.icon} />
+                    <HStack
+                        className={cls.articleInfo}
+                        gap="8"
+                    >
+                        <Icon Svg={EyeIcon} className={cls.icon} />
 
-                    <Text text={String(article?.views)} />
-                </div>
+                        <Text text={String(article?.views)} />
+                    </HStack>
 
-                <div className={cls.articleInfo}>
-                    <Icon Svg={CalendarIcon} className={cls.icon} />
+                    <HStack
+                        className={cls.articleInfo}
+                        gap="8"
+                    >
+                        <Icon Svg={CalendarIcon} className={cls.icon} />
 
-                    <Text text={article?.createdAt} />
-                </div>
+                        <Text text={article?.createdAt} />
+                    </HStack>
+                </VStack>
 
                 {article?.blocks.map(renderBlock)}
             </>
@@ -162,9 +178,12 @@ const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div className={classNames(cls.ArticleDetails, {}, [className])}>
+            <VStack
+                className={classNames(cls.ArticleDetails, {}, [className])}
+                gap="16"
+            >
                 {content}
-            </div>
+            </VStack>
         </DynamicModuleLoader>
     );
 };

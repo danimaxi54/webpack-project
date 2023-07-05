@@ -12,6 +12,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'feature/AddCommentForm';
 import Page from 'widgets/Page/ui/Page';
+import { VStack } from 'shared/ui/Stack';
 import ArticleDetailsPageHeader from '../ArticleDetailsPageHeader/ui/ArticleDetailsPageHeader';
 import {
     getArticleRecommendationsIsLoading,
@@ -72,7 +73,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Page>
-                <div className={classNames('', {}, [className])}>
+                <VStack gap="16" max>
                     <ArticleDetailsPageHeader />
 
                     <ArticleDetails id={id} />
@@ -106,7 +107,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
                         comments={comments}
                         isLoading={commentsIsLoading}
                     />
-                </div>
+                </VStack>
             </Page>
         </DynamicModuleLoader>
 
