@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import Select from 'shared/ui/Select/Select';
 import { useTranslation } from 'react-i18next';
+import ListBox from 'shared/ui/ListBox/ListBox';
 import { Country } from '../../model/types/country';
 
 interface CurrencySelectProps {
@@ -49,13 +50,14 @@ const CountrySelect: FC<CurrencySelectProps> = (props) => {
     };
 
     return (
-        <Select
+        <ListBox
             className={classNames('', {}, [className])}
             label={t('Укажите страну')}
-            options={options}
+            items={options}
             onChange={onChangeHandler}
             value={value}
             readonly={readonly}
+            direction="top"
         />
     );
 };
