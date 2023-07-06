@@ -57,7 +57,7 @@ const CountrySelect: FC<CurrencySelectProps> = (props) => {
             onChange={onChangeHandler}
             value={value}
             readonly={readonly}
-            direction="top"
+            direction="top right"
         />
     );
 };
