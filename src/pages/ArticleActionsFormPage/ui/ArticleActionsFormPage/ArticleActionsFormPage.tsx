@@ -3,7 +3,6 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Page } from 'widgets/Page';
 import { useParams } from 'react-router-dom';
-import cls from './ArticleActionsFormPage.module.scss';
 
 interface ArticleActionsFormPageProps {
     className?: string;
@@ -19,7 +18,7 @@ const ArticleActionsFormPage: FC<ArticleActionsFormPageProps> = (props) => {
     } = props;
 
     return (
-        <Page className={classNames(cls.ArticleActionsFormPage, {}, [className])}>
+        <Page className={classNames('', {}, [className])}>
             {isEdit ? t('Редактирование статьи с ID = ') + id : t('Создание новой статьи')}
         </Page>
     );

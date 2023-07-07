@@ -51,7 +51,7 @@ export const Dropdown: FC<DropdownProps> = (props) => {
             </Menu.Button>
 
             <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
-                {items.map((item) => {
+                {items.map((item, index) => {
                     const content = ({ active }: { active: boolean }) => (
                         <button
                             disabled={item.disabled}
@@ -66,6 +66,7 @@ export const Dropdown: FC<DropdownProps> = (props) => {
                     if (item.href) {
                         return (
                             <Menu.Item
+                                key={index}
                                 as={AppLink}
                                 to={item.href}
                                 disabled={item.disabled}
@@ -79,6 +80,7 @@ export const Dropdown: FC<DropdownProps> = (props) => {
                         <Menu.Item
                             as={Fragment}
                             disabled={item.disabled}
+                            key={index}
                         >
                             {content}
                         </Menu.Item>

@@ -8,14 +8,14 @@ import {
     ArticleSortSelector,
 } from 'entities/Article';
 import { useSelector } from 'react-redux';
-import { ArticleViewSelector } from 'feature/ArticleViewSelector';
+import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import Card from 'shared/ui/Card/Card';
 import Input from 'shared/ui/Input/Input';
 import { SortOrder } from 'shared/types';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { TabItem } from 'shared/ui/Tabs/Tabs';
-import { ArticleTypeTabs } from 'feature/ArticleTypeTabs';
+import { ArticleTypeTabs } from 'features/ArticleTypeTabs';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import {
     getArticlesPageOrder,
