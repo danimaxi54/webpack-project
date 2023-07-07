@@ -23,6 +23,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     square?: boolean;
     size?: ButtonSize;
     disabled?: boolean;
+
+    'data-testid'?: string;
 }
 
 const Button: FC<ButtonProps> = (props) => {

@@ -60,6 +60,7 @@ const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (props) =>
                         ? (
                             <Button
                                 onClick={onEdit}
+                                data-testid="EditableProfileCardHeader.EditButton"
                             >
                                 {t('Редактировать')}
                             </Button>
@@ -69,6 +70,7 @@ const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (props) =>
                                 <Button
                                     theme={ButtonTheme.OUTLINE_RED}
                                     onClick={onCanselEdit}
+                                    data-testid="EditableProfileCardHeader.CancelButton"
                                 >
                                     {t('Отменить')}
                                 </Button>
@@ -76,6 +78,7 @@ const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (props) =>
                                 <Button
                                     theme={ButtonTheme.OUTLINE}
                                     onClick={onSave}
+                                    data-testid="EditableProfileCardHeader.SaveButton"
                                 >
                                     {t('Сохранить')}
                                 </Button>
@@ -83,7 +86,6 @@ const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = (props) =>
                         )}
                 </>
             )}
-
         </HStack>
     );
 };

@@ -82,19 +82,22 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
             id: number;
             value: string | number | undefined;
             placeholder: string;
-            onChange?: (value: string | Currency | Country) => void
+            onChange?: (value: string | Currency | Country) => void;
+            'data-testid'?: string;
         }> = [
             {
                 id: 1,
                 value: data?.firstname,
                 placeholder: t('Ваше имя'),
                 onChange: onChangeFirstname,
+                'data-testid': 'ProfileCard.Firstname',
             },
             {
                 id: 2,
                 value: data?.lastname,
                 placeholder: t('Ваша фамилия'),
                 onChange: onChangeLastname,
+                'data-testid': 'ProfileCard.Lastname',
             },
             {
                 id: 3,
@@ -158,6 +161,7 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
                         value={value}
                         className={cls.input}
                         readonly={readonly}
+                        data-testid={data['data-testid']}
                     />
                 );
             }))}

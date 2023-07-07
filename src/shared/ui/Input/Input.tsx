@@ -15,6 +15,8 @@ interface InputProps extends HTMLInputProps {
     onChange?: (value: string) => void;
     autofocus?: boolean;
     readonly?: boolean;
+
+    'data-testid'?: string;
 }
 
 const Input: FC<InputProps> = (props) => {
