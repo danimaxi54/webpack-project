@@ -1,4 +1,7 @@
-import React, { Suspense, memo } from 'react';
+import React, {
+    Suspense,
+    memo,
+} from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { PageLoader } from 'widgets/PageLoader';
 
@@ -16,7 +19,7 @@ const AppRouter = () => {
                 element={
                     route.authOnly
                         ? (
-                            <RequireAuth>
+                            <RequireAuth roles={route.roles}>
                                 <>
                                     {element}
                                 </>
