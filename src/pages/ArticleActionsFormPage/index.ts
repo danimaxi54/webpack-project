@@ -2,4 +2,4 @@ export {
     ArticleActionsFormPageAsync as ArticleActionsFormPage,
 } from './ui/ArticleActionsFormPage/ArticleActionsFormPageAsync';
 
-export { ArticleActionsFormPageSchema } from './model/types/articleActionsFormPageSchema';
+export type { ArticleActionsFormPageSchema } from './model/types/articleActionsFormPageSchema';

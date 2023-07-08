@@ -4,10 +4,8 @@ export { default as ArticleSortSelector } from './ui/ArticleSortSelector/Article
 
 export { getArticleDetailsData } from './model/selectors/articleDetails';
 
-export {
-    Article,
-    ArticleView,
-    ArticleSortField,
-    ArticleType,
-} from './model/types/article';
+export type { Article } from './model/types/article';
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
+export { ArticleSortField } from 'entities/Article/model/consts/articleConsts';
+export { ArticleView } from 'entities/Article/model/consts/articleConsts';
+export { ArticleType } from 'entities/Article/model/consts/articleConsts';

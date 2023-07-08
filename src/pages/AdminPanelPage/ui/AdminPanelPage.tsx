@@ -17,7 +17,7 @@ const AdminPanelPage: FC<AdminPanelPageProps> = (props) => {
 
     return (
         <Page className={classNames(cls.AdminPanelPage, {}, [className])}>
-            админка!!
+            ...
         </Page>
     );
 };
