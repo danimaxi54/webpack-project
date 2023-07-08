@@ -181,6 +181,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
             <VStack
                 className={classNames(cls.ArticleDetails, {}, [className])}
                 gap="16"
+                max
             >
                 {content}
             </VStack>

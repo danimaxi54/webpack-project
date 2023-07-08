@@ -18,7 +18,7 @@ const RequireAuth: FC<RequireAuthProps> = (props) => {
 
     const hasRequireRoles = useMemo(() => {
         if (!roles) {
-            return false;
+            return true;
         }
 
         return roles.some((role) => userRoles?.includes(role));

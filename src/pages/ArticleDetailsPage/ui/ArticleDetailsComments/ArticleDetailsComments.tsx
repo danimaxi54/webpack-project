@@ -41,6 +41,7 @@ const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = (props) => {
         <VStack
             className={classNames('', {}, [])}
             gap="16"
+            max
         >
             <Text
                 title={t('Комментарии')}

@@ -24,7 +24,11 @@ const CommentCard: FC<CommentCardProps> = (props) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.CommentCard, {}, [className, cls.loading])}>
+            <VStack
+                className={classNames(cls.CommentCard, {}, [className, cls.loading])}
+                gap="8"
+                max
+            >
                 <div className={cls.header}>
                     <Skeleton
                         width={30}
@@ -44,7 +48,7 @@ const CommentCard: FC<CommentCardProps> = (props) => {
                     height={50}
                     className={cls.text}
                 />
-            </div>
+            </VStack>
         );
     }
 
