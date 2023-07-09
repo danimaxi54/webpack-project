@@ -59,6 +59,7 @@ const Navbar: FC<NavbarProps> = (props) => {
                     className={cls.actions}
                     gap="16"
                 >
+
                     <NotificationButton />
 
                     <AvatarDropdown />
