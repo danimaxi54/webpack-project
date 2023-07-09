@@ -41,7 +41,10 @@ export const Dropdown: FC<DropdownProps> = (props) => {
             as="div"
             className={classNames(cls.Dropdown, {}, [className, popupCls.popup])}
         >
-            <Menu.Button className={popupCls.trigger}>
+            <Menu.Button
+                className={popupCls.trigger}
+                as="div"
+            >
                 {trigger}
             </Menu.Button>
 

@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Icon.module.scss';
 
-interface IconProps {
+interface IconProps extends React.SVGProps<SVGSVGElement> {
     className?: string;
     Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
     inverted?: boolean;
@@ -13,6 +13,7 @@ const Icon: FC<IconProps> = (props) => {
         className,
         Svg,
         inverted,
+        ...otherProps
     } = props;
 
     const mods: Mods = {
@@ -21,7 +22,10 @@ const Icon: FC<IconProps> = (props) => {
     };
 
     return (
-        <Svg className={classNames('', mods, [className])} />
+        <Svg
+            className={classNames('', mods, [className])}
+            {...otherProps}
+        />
     );
 };
 
