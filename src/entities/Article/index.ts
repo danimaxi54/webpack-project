@@ -6,6 +6,6 @@ export { getArticleDetailsData } from './model/selectors/articleDetails';
 
 export type { Article } from './model/types/article';
 export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
-export { ArticleSortField } from 'entities/Article/model/consts/articleConsts';
-export { ArticleView } from 'entities/Article/model/consts/articleConsts';
-export { ArticleType } from 'entities/Article/model/consts/articleConsts';
+export { ArticleSortField } from '@/entities/Article/model/consts/articleConsts';
+export { ArticleView } from '@/entities/Article/model/consts/articleConsts';
+export { ArticleType } from '@/entities/Article/model/consts/articleConsts';

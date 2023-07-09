@@ -1,11 +1,11 @@
-import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
-
-import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import Page from 'widgets/Page/ui/Page';
-import { VStack } from 'shared/ui/Stack';
-import { ArticleRecommendationsList } from 'features/articleRecommendationsList';
 import { FC } from 'react';
+import { ArticleDetails } from '@/entities/Article';
+
+import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import Page from '@/widgets/Page/ui/Page';
+import { VStack } from '@/shared/ui/Stack';
+import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComments';
 import ArticleDetailsPageHeader from '../ArticleDetailsPageHeader/ui/ArticleDetailsPageHeader';
 import { articleDetailsPageReducer } from '../../model/slice';

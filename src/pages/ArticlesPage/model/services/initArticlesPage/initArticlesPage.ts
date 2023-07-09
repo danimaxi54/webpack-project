@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
-import { getQueryParam } from 'shared/lib/url/getQueryParams/getQueryParams';
-import { SortOrder } from 'shared/types';
-import { ArticleSortField, ArticleType } from 'entities/Article';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { getQueryParam } from '@/shared/lib/url/getQueryParams/getQueryParams';
+import { SortOrder } from '@/shared/types';
+import { ArticleSortField, ArticleType } from '@/entities/Article';
 import { articlesPageActions } from '../../slices/articlePageSlice/articlePageSlice';
 import { fetchArticlesList } from '../../services/fetchArticlesList/fetchArticlesList';
 import {
