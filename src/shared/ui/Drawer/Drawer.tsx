@@ -96,7 +96,7 @@ const DrawerContent: FC<DrawerProps> = (props) => {
     );
 };
 
-const DrawerInner = (props: DrawerProps) => {
+const DrawerAsync = (props: DrawerProps) => {
     const { isLoaded } = useAnimationLibs();
 
     if (!isLoaded) {
@@ -108,6 +108,6 @@ const DrawerInner = (props: DrawerProps) => {
 
 export const Drawer = (props: DrawerProps) => (
     <AnimationProvider>
-        <DrawerInner {...props} />
+        <DrawerAsync {...props} />
     </AnimationProvider>
 );
