@@ -2,7 +2,6 @@ import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './RatingCard.module.scss';
 import Card from '@/shared/ui/Card/Card';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import Text from '@/shared/ui/Text/Text';
@@ -69,7 +68,7 @@ export const RatingCard: FC<RatingCardProps> = (props) => {
     );
 
     return (
-        <Card className={classNames(cls.RatingCard, {}, [className])}>
+        <Card className={classNames('', {}, [className])}>
             <VStack align="center">
                 <Text title={title} />
 
