@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import ListBox from './ListBox';
+import { ListBox } from './ListBox';
 
 export default {
     title: 'shared/ListBox',

@@ -2,9 +2,11 @@ import { FC, Fragment, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DropdownDirection } from 'shared/types/ui';
-import HStack from '../Stack/HStack/HStack';
-import Button from '../Button/Button';
+import { mapDirectionClass } from '../../styles/consts';
+import HStack from '../../../Stack/HStack/HStack';
+import Button from '../../../Button/Button';
 import cls from './ListBox.module.scss';
+import popupCls from '../../styles/popup.module.scss';
 
 export interface ListBoxItem {
     value: string;
@@ -23,14 +25,7 @@ interface ListBoxProps {
     direction?: DropdownDirection;
 }
 
-const mapDirectionClass: Record<DropdownDirection, string> = {
-    'bottom left': cls.optionBottomLeft,
-    'bottom right': cls.optionBottomRight,
-    'top left': cls.optionTopLeft,
-    'top right': cls.optionTopRight,
-};
-
-const ListBox: FC<ListBoxProps> = (props) => {
+export const ListBox: FC<ListBoxProps> = (props) => {
     const {
         className,
         items,
@@ -42,8 +37,6 @@ const ListBox: FC<ListBoxProps> = (props) => {
         direction = 'bottom left',
     } = props;
 
-    const optionsClasses = [className, mapDirectionClass[direction]];
-
     return (
         <HStack gap="4">
             {label && (
@@ -54,7 +47,7 @@ const ListBox: FC<ListBoxProps> = (props) => {
 
             <HListBox
                 disabled={readonly}
-                className={classNames(cls.ListBox, {}, optionsClasses)}
+                className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
                 as="div"
                 value={value}
                 onChange={onChange}
@@ -70,7 +63,7 @@ const ListBox: FC<ListBoxProps> = (props) => {
                     </Button>
                 </HListBox.Button>
 
-                <HListBox.Options className={classNames(cls.options, {}, optionsClasses)}>
+                <HListBox.Options className={classNames(cls.options, {}, [mapDirectionClass[direction]])}>
                     {items?.map((item) => (
                         <HListBox.Option
                             key={item.value}
@@ -82,8 +75,8 @@ const ListBox: FC<ListBoxProps> = (props) => {
                                 <li className={classNames(
                                     cls.item,
                                     {
-                                        [cls.active]: selected,
-                                        [cls.disabled]: item.disabled,
+                                        [popupCls.active]: selected,
+                                        [popupCls.disabled]: item.disabled,
                                     },
                                     [],
                                 )}
@@ -100,5 +93,3 @@ const ListBox: FC<ListBoxProps> = (props) => {
         </HStack>
     );
 };
-
-export default ListBox;

@@ -29,7 +29,7 @@ export function buildBabelLoader({ isDev, isTsx }: BuildBabelLoaderProps) {
                     isTsx && [
                         babelRemovePropsPlugin,
                         {
-                            props: 'data-testid',
+                            props: ['data-testid'],
                         },
                     ],
                     isDev && require.resolve('react-refresh/babel'),
