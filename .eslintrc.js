@@ -70,7 +70,7 @@ module.exports = {
         'react/jsx-no-useless-fragment': 'off',
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
-        'danimaxi54-plugin-new/path-checker': 'error',
+        'danimaxi54-plugin-new/path-checker': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,
