@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import { FC } from 'react';
 import { ArticleDetails } from '@/entities/Article';
 
 import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -9,13 +8,18 @@ import { ArticleRecommendationsList } from '@/features/articleRecommendationsLis
 import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComments';
 import ArticleDetailsPageHeader from '../ArticleDetailsPageHeader/ui/ArticleDetailsPageHeader';
 import { articleDetailsPageReducer } from '../../model/slice';
+import { ArticleRating } from '@/features/articleRating';
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,
 };
 
-const ArticleDetailsPage: FC = () => {
+const ArticleDetailsPage = () => {
     const { id } = useParams<{ id: string }>();
+
+    if (!id) {
+        return null;
+    }
 
     return (
         <DynamicModuleLoader reducers={reducers}>
@@ -24,6 +28,8 @@ const ArticleDetailsPage: FC = () => {
                     <ArticleDetailsPageHeader />
 
                     <ArticleDetails id={id} />
+
+                    <ArticleRating articleId={id} />
 
                     <ArticleRecommendationsList />
 

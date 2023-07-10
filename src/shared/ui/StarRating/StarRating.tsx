@@ -21,7 +21,7 @@ const StarRating: FC<StarRatingProps> = (props) => {
         onSelect,
     } = props;
 
-    const [currentStarsCount, setCurrentStarsCount] = useState(0);
+    const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
     const onHover = (starsCount: number) => () => {

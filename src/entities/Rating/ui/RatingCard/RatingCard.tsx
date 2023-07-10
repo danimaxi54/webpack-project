@@ -16,8 +16,9 @@ interface RatingCardProps {
     title?: string;
     feedbackTitle?: string;
     hasFeedback?: boolean;
-    onCancel?: (starsCount:number) => void;
+    onCancel?: (starsCount: number) => void;
     onAccept?: (starsCount: number, feedback?: string) => void;
+    rate?: number;
 }
 
 export const RatingCard: FC<RatingCardProps> = (props) => {
@@ -28,11 +29,12 @@ export const RatingCard: FC<RatingCardProps> = (props) => {
         feedbackTitle,
         hasFeedback,
         title,
+        rate = 0,
     } = props;
 
     const { t } = useTranslation();
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [starsCount, setStarsCount] = useState(0);
+    const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
     const onSelectStars = (selectedStarsCount: number) => {
@@ -55,6 +57,10 @@ export const RatingCard: FC<RatingCardProps> = (props) => {
         onCancel?.(starsCount);
     };
 
+    const onClickOutsideModal = () => {
+        setIsModalOpen(false);
+    };
+
     const modalContent = (
         <>
             <Text title={feedbackTitle} />
@@ -68,19 +74,24 @@ export const RatingCard: FC<RatingCardProps> = (props) => {
     );
 
     return (
-        <Card className={classNames('', {}, [className])}>
+        <Card
+            className={classNames('', {}, [className])}
+            max
+        >
             <VStack align="center">
-                <Text title={title} />
+                <Text title={starsCount ? t('Спасибо за оценку!') : title} />
 
                 <StarRating
                     size={40}
                     onSelect={onSelectStars}
+                    selectedStars={starsCount}
                 />
 
                 <BrowserView>
                     <Modal
                         isOpen={isModalOpen}
                         lazy
+                        onClose={onClickOutsideModal}
                     >
                         <VStack
                             gap="32"
@@ -101,7 +112,7 @@ export const RatingCard: FC<RatingCardProps> = (props) => {
                                 </Button>
 
                                 <Button onClick={acceptHandler}>
-                                    {t('Закрыть')}
+                                    {t('Отправить')}
                                 </Button>
                             </HStack>
                         </VStack>
