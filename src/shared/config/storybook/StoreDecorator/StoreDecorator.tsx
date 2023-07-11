@@ -1,16 +1,11 @@
 import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-// eslint-disable-next-line danimaxi54-plugin-new/public-api-imports
-import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice';
-// eslint-disable-next-line danimaxi54-plugin-new/public-api-imports
-import { profileReducer } from '@/features/editableProfileCard/model/slice/profileSlice';
+import { loginReducer } from '@/features/AuthByUsername/testing';
+import { profileReducer } from '@/features/editableProfileCard/testing';
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-// eslint-disable-next-line danimaxi54-plugin-new/public-api-imports
-import { addCommentFormReducer } from '@/features/AddCommentForm/model/slices/addCommentFormSlice';
-// eslint-disable-next-line danimaxi54-plugin-new/public-api-imports
-import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slice';
-// eslint-disable-next-line danimaxi54-plugin-new/public-api-imports
-import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
+import { addCommentFormReducer } from '@/features/AddCommentForm/testing';
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
+import { articleDetailsReducer } from '@/entities/Article/testing';
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
