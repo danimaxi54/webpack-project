@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { FC, useMemo } from 'react';
 import { getUserAuthData, getUserRoles, UserRole } from '@/entities/User';
 
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/shared/const/router';
 
 interface RequireAuthProps {
     roles?: UserRole[]

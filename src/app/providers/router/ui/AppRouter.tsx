@@ -5,8 +5,9 @@ import React, {
 import { Route, Routes } from 'react-router-dom';
 import { PageLoader } from '@/widgets/PageLoader';
 
-import { AppRouteProps, routeConfig } from '@/shared/config/routeConfig/routeConfig';
+import { routeConfig } from '@/app/providers/router/config/routeConfig';
 import RequireAuth from './RequireAuth';
+import { AppRouteProps } from '@/shared/types/router';
 
 const AppRouter = () => {
     const renderWithWrapper = (route: AppRouteProps) => {
