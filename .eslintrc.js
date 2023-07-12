@@ -23,6 +23,7 @@ module.exports = {
         'i18next',
         'react-hooks',
         'danimaxi54-plugin-new',
+        'unused-imports',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -85,6 +86,7 @@ module.exports = {
                 ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
             },
         ],
+        'unused-imports/no-unused-imports': 'error',
     },
     globals: {
         __IS_DEV__: true,
