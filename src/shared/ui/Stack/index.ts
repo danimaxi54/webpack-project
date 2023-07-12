@@ -1,2 +1,2 @@
-export { default as VStack } from './VStack/VStack';
-export { default as HStack } from './HStack/HStack';
+export * from './VStack/VStack';
+export * from './HStack/HStack';

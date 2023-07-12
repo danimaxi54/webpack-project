@@ -19,7 +19,7 @@ interface InputProps extends HTMLInputProps {
     'data-testid'?: string;
 }
 
-const Input: FC<InputProps> = (props) => {
+export const Input: FC<InputProps> = (props) => {
     const {
         className,
         onChange,
@@ -99,5 +99,3 @@ const Input: FC<InputProps> = (props) => {
         </div>
     );
 };
-
-export default Input;

@@ -39,7 +39,7 @@ const mapSizeToHeaderTab: Record<TextSize, HeaderTagType> = {
     [TextSize.L]: 'h1',
 };
 
-const Text: FC<TextProps> = (props) => {
+export const Text: FC<TextProps> = (props) => {
     const {
         className,
         text,
@@ -76,5 +76,3 @@ const Text: FC<TextProps> = (props) => {
         </div>
     );
 };
-
-export default Text;

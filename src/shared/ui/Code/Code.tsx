@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import CopyIcon from '@/shared/assets/icons/copy.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import Button, { ButtonTheme } from '../Button/Button';
+import { ButtonTheme, Button } from '../Button/Button';
 import cls from './Code.module.scss';
 
 interface CodeProps {
@@ -9,7 +9,7 @@ interface CodeProps {
     text: string;
 }
 
-const Code: FC<CodeProps> = (props) => {
+export const Code: FC<CodeProps> = (props) => {
     const {
         className,
         text,
@@ -36,5 +36,3 @@ const Code: FC<CodeProps> = (props) => {
 
     );
 };
-
-export default Code;

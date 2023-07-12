@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { classNames } from '../../lib/classNames/classNames';
 import cls from './StarRating.module.scss';
-import Icon from '../Icon/Icon';
+import { Icon } from '../Icon/Icon';
 import StarIcon from '../../assets/icons/star.svg';
 
 interface StarRatingProps {
@@ -13,7 +13,7 @@ interface StarRatingProps {
 
 const stars = [1, 2, 3, 4, 5];
 
-const StarRating: FC<StarRatingProps> = (props) => {
+export const StarRating: FC<StarRatingProps> = (props) => {
     const {
         className,
         selectedStars = 0,
@@ -70,5 +70,3 @@ const StarRating: FC<StarRatingProps> = (props) => {
         </div>
     );
 };
-
-export default StarRating;

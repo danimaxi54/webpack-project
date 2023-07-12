@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import AppLink, { AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
+import { AppLinkTheme, AppLink } from '@/shared/ui/AppLink';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getUserAuthData } from '@/entities/User';
 import { SidebarItemType } from '../../model/types/sidebar';
@@ -13,7 +13,7 @@ interface SidebarItemProps {
     authOnly?: boolean;
 }
 
-const SidebarItem: FC<SidebarItemProps> = (props) => {
+export const SidebarItem: FC<SidebarItemProps> = (props) => {
     const { t } = useTranslation();
 
     const isAuth = useSelector(getUserAuthData);
@@ -39,5 +39,3 @@ const SidebarItem: FC<SidebarItemProps> = (props) => {
         </AppLink>
     );
 };
-
-export default SidebarItem;

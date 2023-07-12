@@ -8,7 +8,7 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
     inverted?: boolean;
 }
 
-const Icon: FC<IconProps> = (props) => {
+export const Icon: FC<IconProps> = (props) => {
     const {
         className,
         Svg,
@@ -28,5 +28,3 @@ const Icon: FC<IconProps> = (props) => {
         />
     );
 };
-
-export default Icon;

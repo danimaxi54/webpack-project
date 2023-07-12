@@ -19,6 +19,13 @@ interface UseModalResult {
 
 const ANIMATION_DELAY = 300;
 
+/**
+ * Переиспользуемый хук для модальных компонентов (drawer/modal)
+ *
+ * @param animationDelay
+ * @param isOpen
+ * @param onClose
+ */
 export const useModal = (props: UseModalProps): UseModalResult => {
     const {
         onClose,

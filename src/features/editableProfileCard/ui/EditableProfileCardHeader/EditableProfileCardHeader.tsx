@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getUserAuthData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import Text from '@/shared/ui/Text/Text';
-import Button, { ButtonTheme } from '@/shared/ui/Button/Button';
+import { Text } from '@/shared/ui/Text';
+import { ButtonTheme, Button } from '@/shared/ui/Button';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slice/profileSlice';
 import {
@@ -14,7 +14,7 @@ import {
 import {
     getProfileReadonly,
 } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
-import HStack from '../../../../shared/ui/Stack/HStack/HStack';
+import { HStack } from '../../../../shared/ui/Stack/HStack/HStack';
 
 interface EditableProfileCardHeaderProps {
     className?: string;

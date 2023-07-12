@@ -14,7 +14,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement>{
     children: ReactNode;
 }
 
-const Card: FC<CardProps> = (props) => {
+export const Card: FC<CardProps> = (props) => {
     const {
         className,
         theme = CardTheme.NORMAL,
@@ -32,5 +32,3 @@ const Card: FC<CardProps> = (props) => {
         </div>
     );
 };
-
-export default Card;

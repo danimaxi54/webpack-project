@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import Card, { CardTheme } from '../Card/Card';
+import { CardTheme, Card } from '../Card/Card';
 import cls from './Tabs.module.scss';
 
 export interface TabItem<T> {
@@ -15,7 +15,7 @@ interface TabsProps<T> {
     value: string;
 }
 
-const Tabs = <T extends string>(props: TabsProps<T>) => {
+export const Tabs = <T extends string>(props: TabsProps<T>) => {
     const {
         className,
         tabs,
@@ -40,5 +40,3 @@ const Tabs = <T extends string>(props: TabsProps<T>) => {
         </div>
     );
 };
-
-export default Tabs;

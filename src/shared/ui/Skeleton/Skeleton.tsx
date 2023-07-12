@@ -9,7 +9,7 @@ interface SkeletonProps {
     border?: string;
 }
 
-const Skeleton: FC<SkeletonProps> = (props) => {
+export const Skeleton: FC<SkeletonProps> = (props) => {
     const {
         className,
         border,
@@ -27,5 +27,3 @@ const Skeleton: FC<SkeletonProps> = (props) => {
         <div style={styles} className={classNames(cls.Skeleton, {}, [className])} />
     );
 };
-
-export default Skeleton;

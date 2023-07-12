@@ -10,7 +10,7 @@ interface AvatarProps {
     alt?: string;
 }
 
-const Avatar: FC<AvatarProps> = (props) => {
+export const Avatar: FC<AvatarProps> = (props) => {
     const {
         className,
         src,
@@ -34,5 +34,3 @@ const Avatar: FC<AvatarProps> = (props) => {
         />
     );
 };
-
-export default Avatar;
