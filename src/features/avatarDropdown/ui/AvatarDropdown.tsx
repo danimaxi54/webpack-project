@@ -12,7 +12,7 @@ import {
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import cls from './AvatarDropdown.module.scss';
 import Dropdown from '../../../shared/ui/Popups/ui/Dropdown/Dropdown';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 
 interface AvatarDropdownProps {
     className?: string;
@@ -48,12 +48,12 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = (props) => {
                 ...(isAdminPanelAvailable ? [
                     {
                         content: t('Админка'),
-                        href: RoutePath.admin_panel,
+                        href: getRouteAdminPanel(),
                     },
                 ] : []),
                 {
                     content: t('Профиль'),
-                    href: RoutePath.profile + authData.id,
+                    href: getRouteProfile(authData.id),
                 },
                 {
                     content: t('Выйти'),

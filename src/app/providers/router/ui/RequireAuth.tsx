@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { FC, useMemo } from 'react';
 import { getUserAuthData, getUserRoles, UserRole } from '@/entities/User';
 
-import { RoutePath } from '@/shared/const/router';
+import { getRouteForbidden, getRouteMain } from '@/shared/const/router';
 
 interface RequireAuthProps {
     roles?: UserRole[]
@@ -25,11 +25,11 @@ const RequireAuth: FC<RequireAuthProps> = (props) => {
     }, [roles, userRoles]);
 
     if (!auth) {
-        return <Navigate to={RoutePath.main} replace />;
+        return <Navigate to={getRouteMain()} replace />;
     }
 
     if (!hasRequireRoles) {
-        return <Navigate to={RoutePath.forbidden} replace />;
+        return <Navigate to={getRouteForbidden()} replace />;
     }
 
     return children;
