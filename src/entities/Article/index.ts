@@ -1,6 +1,5 @@
 export { default as ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 export { default as ArticleList } from './ui/ArticleList/ArticleList';
-export { default as ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector';
 
 export { getArticleDetailsData } from './model/selectors/articleDetails';
 
