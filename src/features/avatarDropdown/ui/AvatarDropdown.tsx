@@ -10,7 +10,6 @@ import {
     userActions,
 } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import cls from './AvatarDropdown.module.scss';
 import Dropdown from '../../../shared/ui/Popups/ui/Dropdown/Dropdown';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 
@@ -42,7 +41,7 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = (props) => {
     return (
         <Dropdown
             direction="bottom left"
-            className={classNames(cls.AvatarDropdown, {}, [className])}
+            className={classNames('', {}, [className])}
             trigger={(
                 <Avatar
                     size={30}
