@@ -16,7 +16,10 @@ const AdminPanelPage: FC<AdminPanelPageProps> = (props) => {
     } = props;
 
     return (
-        <Page className={classNames(cls.AdminPanelPage, {}, [className])}>
+        <Page
+            data-testid="AdminPanelPage"
+            className={classNames(cls.AdminPanelPage, {}, [className])}
+        >
             ...
         </Page>
     );
