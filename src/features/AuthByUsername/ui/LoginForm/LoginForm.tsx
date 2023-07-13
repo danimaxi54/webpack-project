@@ -14,6 +14,7 @@ import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLogi
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
+import { HStack } from '@/shared/ui/Stack';
 
 export interface LoginFormProps {
     className?: string;
@@ -56,7 +57,11 @@ const LoginForm: FC<LoginFormProps> = (props) => {
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>
-            <div className={classNames(cls.LoginForm, {}, [className])}>
+            <HStack
+                className={classNames(cls.LoginForm, {}, [className])}
+                gap="8"
+                align="start"
+            >
                 <Text title={t('Форма авторизации')} />
 
                 {error && (
@@ -86,7 +91,7 @@ const LoginForm: FC<LoginFormProps> = (props) => {
                 >
                     {t('Войти')}
                 </Button>
-            </div>
+            </HStack>
         </DynamicModuleLoader>
 
     );

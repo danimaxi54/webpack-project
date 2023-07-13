@@ -43,7 +43,13 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = (props) => {
         <Dropdown
             direction="bottom left"
             className={classNames(cls.AvatarDropdown, {}, [className])}
-            trigger={<Avatar size={30} src={authData.avatar} />}
+            trigger={(
+                <Avatar
+                    size={30}
+                    src={authData.avatar}
+                    fallbackInverted
+                />
+            )}
             items={[
                 ...(isAdminPanelAvailable ? [
                     {
