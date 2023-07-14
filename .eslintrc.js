@@ -87,6 +87,7 @@ module.exports = {
             },
         ],
         'unused-imports/no-unused-imports': 'error',
+        'react/jsx-newline': ['error', { prevent: false }],
     },
     globals: {
         __IS_DEV__: true,
