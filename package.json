@@ -26,6 +26,7 @@
     "storybook:build": "build-storybook -c ./config/storybook",
     "prepare": "husky install",
     "generate:slice": "node ./scripts/createSlice/index.js",
+    "test:e2e": "cypress open",
     "postinstall": "node ./scripts/clear-cache.js"
   },
   "lint-staged": {
@@ -72,6 +73,7 @@
     "circular-dependency-plugin": "^5.2.2",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.6.0",
+    "cypress": "^11.0.0",
     "eslint": "^8.10.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-danimaxi54-plugin-new": "0.0.8",
