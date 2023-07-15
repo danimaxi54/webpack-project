@@ -146,6 +146,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
                 <VStack
                     gap="4"
                     max
+                    data-testid="ArticleDetails.Info"
                 >
                     <Text
                         title={article?.title}

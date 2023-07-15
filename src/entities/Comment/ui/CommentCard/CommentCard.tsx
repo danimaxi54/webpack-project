@@ -28,6 +28,7 @@ const CommentCard: FC<CommentCardProps> = (props) => {
                 className={classNames(cls.CommentCard, {}, [className, cls.loading])}
                 gap="8"
                 max
+                data-testid="CommentCard.Loading"
             >
                 <div className={cls.header}>
                     <Skeleton
@@ -61,6 +62,7 @@ const CommentCard: FC<CommentCardProps> = (props) => {
             className={classNames(cls.CommentCard, {}, [className])}
             gap="8"
             max
+            data-testid="CommentCard.Content"
         >
             <AppLink className={cls.header} to={getRouteProfile(comment.user.id)}>
                 {comment.user?.avatar && <Avatar size={30} src={comment.user.avatar} />}

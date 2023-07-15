@@ -50,15 +50,20 @@ const AddCommentForm: FC<AddCommentFormProps> = (props) => {
                 className={classNames(cls.AddCommentForm, {}, [className])}
                 justify="between"
                 max
+                data-testid="AddCommentForm"
             >
                 <Input
                     className={cls.input}
                     placeholder={t('Введите текст комментариев')}
                     value={text}
                     onChange={onCommentTextChange}
+                    data-testid="AddCommentForm.Input"
                 />
 
-                <Button onClick={onSendHandler}>
+                <Button
+                    onClick={onSendHandler}
+                    data-testid="AddCommentForm.Button"
+                >
                     {t('Отправить')}
                 </Button>
             </HStack>

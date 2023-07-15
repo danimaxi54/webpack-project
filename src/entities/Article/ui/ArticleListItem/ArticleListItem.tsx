@@ -59,7 +59,10 @@ const ArticleListItem: FC<ArticleListItemProps> = (props) => {
         ) as ArticleTextBlock;
 
         return (
-            <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+            <div
+                className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+                data-testid="ArticleListItem"
+            >
                 <Card className={cls.card}>
                     <div className={cls.header}>
                         <Avatar
@@ -116,6 +119,7 @@ const ArticleListItem: FC<ArticleListItemProps> = (props) => {
             to={getRouteArticlesDetails(article.id)}
             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
             target={target}
+            data-testid="ArticleListItem"
             {...bindHover}
         >
             <Card>
