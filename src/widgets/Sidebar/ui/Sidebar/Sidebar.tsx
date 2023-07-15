@@ -14,9 +14,7 @@ interface SidebarProps {
 }
 
 const Sidebar: FC<SidebarProps> = (props) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     const sidebarItemsList = useSelector(getSidebarItems);
 
@@ -29,7 +27,9 @@ const Sidebar: FC<SidebarProps> = (props) => {
     return (
         <aside
             data-testid="sidebar"
-            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+                className,
+            ])}
         >
             <Button
                 data-testid="sidebar-toggle"
@@ -43,11 +43,7 @@ const Sidebar: FC<SidebarProps> = (props) => {
                 {collapsed ? '>' : '<'}
             </Button>
 
-            <VStack
-                className={cls.items}
-                gap="8"
-                role="navigation"
-            >
+            <VStack className={cls.items} gap="8" role="navigation">
                 {sidebarItemsList.map((item) => (
                     <SidebarItem
                         key={item.path}

@@ -1,9 +1,5 @@
 import { Menu } from '@headlessui/react';
-import {
-    FC,
-    Fragment,
-    ReactNode,
-} from 'react';
+import { FC, Fragment, ReactNode } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
@@ -27,24 +23,19 @@ interface DropdownProps {
 }
 
 export const Dropdown: FC<DropdownProps> = (props) => {
-    const {
-        className,
-        trigger,
-        items,
-        direction = 'top right',
-    } = props;
+    const { className, trigger, items, direction = 'top right' } = props;
 
     const menuClasses = [className, mapDirectionClass[direction]];
 
     return (
         <Menu
             as="div"
-            className={classNames(cls.Dropdown, {}, [className, popupCls.popup])}
+            className={classNames(cls.Dropdown, {}, [
+                className,
+                popupCls.popup,
+            ])}
         >
-            <Menu.Button
-                className={popupCls.trigger}
-                as="div"
-            >
+            <Menu.Button className={popupCls.trigger} as="div">
                 {trigger}
             </Menu.Button>
 
@@ -54,7 +45,11 @@ export const Dropdown: FC<DropdownProps> = (props) => {
                         <button
                             disabled={item.disabled}
                             type="button"
-                            className={classNames(cls.item, { [popupCls.active]: active }, [])}
+                            className={classNames(
+                                cls.item,
+                                { [popupCls.active]: active },
+                                [],
+                            )}
                             onClick={item.onClick}
                         >
                             {item.content}

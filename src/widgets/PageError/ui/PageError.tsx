@@ -9,9 +9,7 @@ interface PageErrorProps {
 }
 
 const PageError: FC<PageErrorProps> = (props) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     const { t } = useTranslation();
 
@@ -24,9 +22,7 @@ const PageError: FC<PageErrorProps> = (props) => {
         <div className={classNames(cls.PageError, {}, [className])}>
             <p>{t('Произошла непредвиденная ошибка')}</p>
 
-            <Button onClick={reloadPage}>
-                {t('Обновить страницу')}
-            </Button>
+            <Button onClick={reloadPage}>{t('Обновить страницу')}</Button>
         </div>
     );
 };

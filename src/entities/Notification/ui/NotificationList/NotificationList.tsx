@@ -11,9 +11,7 @@ interface NotificationListProps {
 }
 
 export const NotificationList: FC<NotificationListProps> = (props) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     const { data, isLoading } = useNotifications(null, {
         pollingInterval: 10000,
@@ -26,23 +24,11 @@ export const NotificationList: FC<NotificationListProps> = (props) => {
                 gap="16"
                 max
             >
-                <Skeleton
-                    width="100%"
-                    border="8px"
-                    height="80px"
-                />
+                <Skeleton width="100%" border="8px" height="80px" />
 
-                <Skeleton
-                    width="100%"
-                    border="8px"
-                    height="80px"
-                />
+                <Skeleton width="100%" border="8px" height="80px" />
 
-                <Skeleton
-                    width="100%"
-                    border="8px"
-                    height="80px"
-                />
+                <Skeleton width="100%" border="8px" height="80px" />
             </VStack>
         );
     }
@@ -54,10 +40,7 @@ export const NotificationList: FC<NotificationListProps> = (props) => {
             max
         >
             {data?.map((item) => (
-                <NotificationItem
-                    key={item.id}
-                    item={item}
-                />
+                <NotificationItem key={item.id} item={item} />
             ))}
         </VStack>
     );

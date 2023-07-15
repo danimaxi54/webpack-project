@@ -18,10 +18,7 @@ export const SidebarItem: FC<SidebarItemProps> = (props) => {
 
     const isAuth = useSelector(getUserAuthData);
 
-    const {
-        item,
-        collapsed,
-    } = props;
+    const { item, collapsed } = props;
 
     if (item.authOnly && !isAuth) {
         return null;

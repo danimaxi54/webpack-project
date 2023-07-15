@@ -18,9 +18,7 @@ interface AvatarDropdownProps {
 }
 
 export const AvatarDropdown: FC<AvatarDropdownProps> = (props) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     const { t } = useTranslation();
 
@@ -42,20 +40,18 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = (props) => {
         <Dropdown
             direction="bottom left"
             className={classNames('', {}, [className])}
-            trigger={(
-                <Avatar
-                    size={30}
-                    src={authData.avatar}
-                    fallbackInverted
-                />
-            )}
+            trigger={
+                <Avatar size={30} src={authData.avatar} fallbackInverted />
+            }
             items={[
-                ...(isAdminPanelAvailable ? [
-                    {
-                        content: t('Админка'),
-                        href: getRouteAdminPanel(),
-                    },
-                ] : []),
+                ...(isAdminPanelAvailable
+                    ? [
+                          {
+                              content: t('Админка'),
+                              href: getRouteAdminPanel(),
+                          },
+                      ]
+                    : []),
                 {
                     content: t('Профиль'),
                     href: getRouteProfile(authData.id),

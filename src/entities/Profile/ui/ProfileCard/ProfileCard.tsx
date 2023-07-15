@@ -52,7 +52,10 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
     if (isLoading) {
         return (
             <HStack
-                className={classNames(cls.ProfileCard, {}, [className, cls.loading])}
+                className={classNames(cls.ProfileCard, {}, [
+                    className,
+                    cls.loading,
+                ])}
                 justify="center"
                 max
             >
@@ -64,7 +67,10 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
     if (error) {
         return (
             <HStack
-                className={classNames(cls.ProfileCard, {}, [className, cls.error])}
+                className={classNames(cls.ProfileCard, {}, [
+                    className,
+                    cls.error,
+                ])}
                 justify="center"
                 max
             >
@@ -79,51 +85,51 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
     }
 
     const PROFILE_INPUT: Array<{
-            id: number;
-            value: string | number | undefined;
-            placeholder: string;
-            onChange?: (value: string | Currency | Country) => void;
-            'data-testid'?: string;
-        }> = [
-            {
-                id: 1,
-                value: data?.firstname,
-                placeholder: t('Ваше имя'),
-                onChange: onChangeFirstname,
-                'data-testid': 'ProfileCard.Firstname',
-            },
-            {
-                id: 2,
-                value: data?.lastname,
-                placeholder: t('Ваша фамилия'),
-                onChange: onChangeLastname,
-                'data-testid': 'ProfileCard.Lastname',
-            },
-            {
-                id: 3,
-                value: data?.age,
-                placeholder: t('Ваш возраст'),
-                onChange: onChangeAge,
-            },
-            {
-                id: 4,
-                value: data?.city,
-                placeholder: t('Ваш город'),
-                onChange: onChangeCity,
-            },
-            {
-                id: 5,
-                value: data?.username,
-                placeholder: t('Имя пользователя'),
-                onChange: onChangeUsername,
-            },
-            {
-                id: 6,
-                value: data?.avatar,
-                placeholder: t('Введите ссылку на аватар'),
-                onChange: onChangeAvatar,
-            },
-        ];
+        id: number;
+        value: string | number | undefined;
+        placeholder: string;
+        onChange?: (value: string | Currency | Country) => void;
+        'data-testid'?: string;
+    }> = [
+        {
+            id: 1,
+            value: data?.firstname,
+            placeholder: t('Ваше имя'),
+            onChange: onChangeFirstname,
+            'data-testid': 'ProfileCard.Firstname',
+        },
+        {
+            id: 2,
+            value: data?.lastname,
+            placeholder: t('Ваша фамилия'),
+            onChange: onChangeLastname,
+            'data-testid': 'ProfileCard.Lastname',
+        },
+        {
+            id: 3,
+            value: data?.age,
+            placeholder: t('Ваш возраст'),
+            onChange: onChangeAge,
+        },
+        {
+            id: 4,
+            value: data?.city,
+            placeholder: t('Ваш город'),
+            onChange: onChangeCity,
+        },
+        {
+            id: 5,
+            value: data?.username,
+            placeholder: t('Имя пользователя'),
+            onChange: onChangeUsername,
+        },
+        {
+            id: 6,
+            value: data?.avatar,
+            placeholder: t('Введите ссылку на аватар'),
+            onChange: onChangeAvatar,
+        },
+    ];
 
     const mods: Mods = {
         [cls.editing]: !readonly,
@@ -136,22 +142,13 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
             max
         >
             {data?.age && (
-                <HStack
-                    className={cls.avatarWrapper}
-                    justify="center"
-                    max
-                >
+                <HStack className={cls.avatarWrapper} justify="center" max>
                     <Avatar src={data.avatar} />
                 </HStack>
-            ) }
+            )}
 
-            {PROFILE_INPUT.map(((data) => {
-                const {
-                    id,
-                    onChange,
-                    placeholder,
-                    value,
-                } = data;
+            {PROFILE_INPUT.map((data) => {
+                const { id, onChange, placeholder, value } = data;
 
                 return (
                     <Input
@@ -164,7 +161,7 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
                         data-testid={data['data-testid']}
                     />
                 );
-            }))}
+            })}
 
             <CurrencySelect
                 value={data?.currency}

@@ -8,19 +8,16 @@ import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { TextTheme, Text } from '@/shared/ui/Text';
 import { ProfileCard } from '@/entities/Profile';
-import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import DynamicModuleLoader, {
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from '@/shared/ui/Stack';
-import EditableProfileCardHeader
-    from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import EditableProfileCardHeader from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
-import {
-    getProfileValidateErrors,
-} from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
-import {
-    getProfileIsLoading,
-} from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
+import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { ValidateProfileError } from '../../model/consts/consts';
@@ -49,7 +46,9 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
         [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при создании'),
         [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
         [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
-        [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t(
+            'Имя и фамилия обязательны',
+        ),
         [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
     };
 
@@ -64,7 +63,11 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     const onChangeAge = (value: string) => {
         const isNumberAge = /^\d+$/.test(value);
 
-        dispatch(profileActions.updateProfile({ age: isNumberAge ? Number(value) : 0 }));
+        dispatch(
+            profileActions.updateProfile({
+                age: isNumberAge ? Number(value) : 0,
+            }),
+        );
     };
 
     const onChangeCity = (value: string) => {
@@ -91,21 +94,18 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <VStack
-                className={classNames('', {}, [className])}
-                gap="8"
-                max
-            >
+            <VStack className={classNames('', {}, [className])} gap="8" max>
                 <EditableProfileCardHeader />
 
-                {validateErrors?.length && validateErrors.map((error) => (
-                    <Text
-                        key={error}
-                        theme={TextTheme.ERROR}
-                        text={validateErrorTranslate[error]}
-                        data-testid="EditableProfileCard.Error"
-                    />
-                ))}
+                {validateErrors?.length &&
+                    validateErrors.map((error) => (
+                        <Text
+                            key={error}
+                            theme={TextTheme.ERROR}
+                            text={validateErrorTranslate[error]}
+                            data-testid="EditableProfileCard.Error"
+                        />
+                    ))}
 
                 <ProfileCard
                     data={formData}
@@ -123,6 +123,5 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                 />
             </VStack>
         </DynamicModuleLoader>
-
     );
 });

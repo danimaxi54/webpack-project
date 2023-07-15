@@ -19,9 +19,7 @@ const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = (props) => {
     const canEdit = useSelector(getCanEditArticle);
     const article = useSelector(getArticleDetailsData);
 
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     const navigate = useNavigate();
 
@@ -39,18 +37,12 @@ const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = (props) => {
             justify="between"
             max
         >
-            <Button
-                theme={ButtonTheme.OUTLINE}
-                onClick={onBackToList}
-            >
+            <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
                 {t('Назад к списку')}
             </Button>
 
             {canEdit && (
-                <Button
-                    theme={ButtonTheme.OUTLINE}
-                    onClick={onEditArticle}
-                >
+                <Button theme={ButtonTheme.OUTLINE} onClick={onEditArticle}>
                     {t('Редактировать')}
                 </Button>
             )}

@@ -1,4 +1,8 @@
-import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {
+    createEntityAdapter,
+    createSlice,
+    PayloadAction,
+} from '@reduxjs/toolkit';
 import {
     Article,
     ArticleType,
@@ -57,7 +61,10 @@ const articlePageSlice = createSlice({
             state.type = action.payload;
         },
         initState: (state) => {
-            const view = localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) as ArticleView || state.view;
+            const view =
+                (localStorage.getItem(
+                    ARTICLE_VIEW_LOCALSTORAGE_KEY,
+                ) as ArticleView) || state.view;
 
             state.view = view;
             state.limit = view === ArticleView.BIG ? 4 : 9;
@@ -74,19 +81,16 @@ const articlePageSlice = createSlice({
                     articlesAdapter.removeAll(state);
                 }
             })
-            .addCase(
-                fetchArticlesList.fulfilled,
-                (state, action) => {
-                    state.isLoading = false;
-                    state.hasMore = action.payload.length >= state.limit;
+            .addCase(fetchArticlesList.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.hasMore = action.payload.length >= state.limit;
 
-                    if (action.meta.arg.replace) {
-                        articlesAdapter.setAll(state, action.payload);
-                    } else {
-                        articlesAdapter.addMany(state, action.payload);
-                    }
-                },
-            )
+                if (action.meta.arg.replace) {
+                    articlesAdapter.setAll(state, action.payload);
+                } else {
+                    articlesAdapter.addMany(state, action.payload);
+                }
+            })
             .addCase(fetchArticlesList.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
@@ -94,4 +98,5 @@ const articlePageSlice = createSlice({
     },
 });
 
-export const { reducer: articlePageReducer, actions: articlesPageActions } = articlePageSlice;
+export const { reducer: articlePageReducer, actions: articlesPageActions } =
+    articlePageSlice;

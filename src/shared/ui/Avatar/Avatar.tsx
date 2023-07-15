@@ -16,13 +16,7 @@ interface AvatarProps {
 }
 
 export const Avatar: FC<AvatarProps> = (props) => {
-    const {
-        className,
-        src,
-        size = 100,
-        alt,
-        fallbackInverted,
-    } = props;
+    const { className, src, size = 100, alt, fallbackInverted } = props;
 
     const styles: CSSProperties = {
         width: size,
@@ -37,13 +31,7 @@ export const Avatar: FC<AvatarProps> = (props) => {
             inverted={fallbackInverted}
         />
     );
-    const fallback = (
-        <Skeleton
-            width={size}
-            height={size}
-            border="50%"
-        />
-    );
+    const fallback = <Skeleton width={size} height={size} border="50%" />;
 
     return (
         <AppImage

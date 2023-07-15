@@ -3,10 +3,7 @@ import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
-    plugins: [
-        react(),
-        svgr({ exportAsDefault: true }),
-    ],
+    plugins: [react(), svgr({ exportAsDefault: true })],
     resolve: {
         alias: [
             {

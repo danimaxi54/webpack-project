@@ -1,7 +1,4 @@
-import React, {
-    Suspense,
-    memo,
-} from 'react';
+import React, { Suspense, memo } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { PageLoader } from '@/widgets/PageLoader';
 
@@ -18,15 +15,13 @@ const AppRouter = () => {
                 key={route.path}
                 path={route.path}
                 element={
-                    route.authOnly
-                        ? (
-                            <RequireAuth roles={route.roles}>
-                                <>
-                                    {element}
-                                </>
-                            </RequireAuth>
-                        )
-                        : element
+                    route.authOnly ? (
+                        <RequireAuth roles={route.roles}>
+                            <>{element}</>
+                        </RequireAuth>
+                    ) : (
+                        element
+                    )
                 }
             />
         );
@@ -34,9 +29,7 @@ const AppRouter = () => {
 
     return (
         <Suspense fallback={<PageLoader />}>
-            <Routes>
-                {Object.values(routeConfig).map(renderWithWrapper)}
-            </Routes>
+            <Routes>{Object.values(routeConfig).map(renderWithWrapper)}</Routes>
         </Suspense>
     );
 };

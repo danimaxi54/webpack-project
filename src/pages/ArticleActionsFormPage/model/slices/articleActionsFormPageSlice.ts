@@ -11,9 +11,7 @@ const articlePageSlice = createSlice({
     name: 'articlePage',
     initialState,
     reducers: {
-        setTitle: (state, action: PayloadAction<string>) => {
-
-        },
+        setTitle: (state, action: PayloadAction<string>) => {},
     },
     extraReducers: (builder) => {
         // builder
@@ -45,4 +43,5 @@ const articlePageSlice = createSlice({
     },
 });
 
-export const { reducer: articlePageReducer, actions: articlesPageActions } = articlePageSlice;
+export const { reducer: articlePageReducer, actions: articlesPageActions } =
+    articlePageSlice;

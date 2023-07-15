@@ -10,10 +10,7 @@ interface CodeProps {
 }
 
 export const Code: FC<CodeProps> = (props) => {
-    const {
-        className,
-        text,
-    } = props;
+    const { className, text } = props;
 
     const onCopy = () => {
         navigator.clipboard.writeText(text);
@@ -29,10 +26,7 @@ export const Code: FC<CodeProps> = (props) => {
                 <CopyIcon className={cls.copyIcon} />
             </Button>
 
-            <code>
-                {text}
-            </code>
+            <code>{text}</code>
         </pre>
-
     );
 };

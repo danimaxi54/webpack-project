@@ -14,27 +14,21 @@ interface PopoverProps {
 }
 
 export const Popover: FC<PopoverProps> = (props) => {
-    const {
-        className,
-        trigger,
-        direction = 'bottom right',
-        children,
-    } = props;
+    const { className, trigger, direction = 'bottom right', children } = props;
 
     return (
-        <HPopover className={classNames(cls.Popover, {}, [className, popupCls.popup])}>
-            <HPopover.Button
-                className={popupCls.trigger}
-                as="div"
-            >
+        <HPopover
+            className={classNames(cls.Popover, {}, [className, popupCls.popup])}
+        >
+            <HPopover.Button className={popupCls.trigger} as="div">
                 {trigger}
             </HPopover.Button>
 
-            <HPopover.Panel className={classNames(
-                cls.panel,
-                {},
-                [className, mapDirectionClass[direction]],
-            )}
+            <HPopover.Panel
+                className={classNames(cls.panel, {}, [
+                    className,
+                    mapDirectionClass[direction],
+                ])}
             >
                 {children}
             </HPopover.Panel>

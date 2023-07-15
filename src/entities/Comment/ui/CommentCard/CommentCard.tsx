@@ -11,31 +11,26 @@ import { getRouteProfile } from '@/shared/const/router';
 
 interface CommentCardProps {
     className?: string;
-    comment?: Comment
+    comment?: Comment;
     isLoading?: boolean;
 }
 
 const CommentCard: FC<CommentCardProps> = (props) => {
-    const {
-        className,
-        comment,
-        isLoading,
-    } = props;
+    const { className, comment, isLoading } = props;
 
     if (isLoading) {
         return (
             <VStack
-                className={classNames(cls.CommentCard, {}, [className, cls.loading])}
+                className={classNames(cls.CommentCard, {}, [
+                    className,
+                    cls.loading,
+                ])}
                 gap="8"
                 max
                 data-testid="CommentCard.Loading"
             >
                 <div className={cls.header}>
-                    <Skeleton
-                        width={30}
-                        height={30}
-                        border="50%"
-                    />
+                    <Skeleton width={30} height={30} border="50%" />
 
                     <Skeleton
                         height={16}
@@ -44,11 +39,7 @@ const CommentCard: FC<CommentCardProps> = (props) => {
                     />
                 </div>
 
-                <Skeleton
-                    width="100%"
-                    height={50}
-                    className={cls.text}
-                />
+                <Skeleton width="100%" height={50} className={cls.text} />
             </VStack>
         );
     }
@@ -64,8 +55,13 @@ const CommentCard: FC<CommentCardProps> = (props) => {
             max
             data-testid="CommentCard.Content"
         >
-            <AppLink className={cls.header} to={getRouteProfile(comment.user.id)}>
-                {comment.user?.avatar && <Avatar size={30} src={comment.user.avatar} />}
+            <AppLink
+                className={cls.header}
+                to={getRouteProfile(comment.user.id)}
+            >
+                {comment.user?.avatar && (
+                    <Avatar size={30} src={comment.user.avatar} />
+                )}
 
                 <Text className={cls.username} text={comment.user.username} />
             </AppLink>

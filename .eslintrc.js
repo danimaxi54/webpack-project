@@ -9,6 +9,7 @@ module.exports = {
         'airbnb',
         'plugin:i18next/recommended',
         'plugin:storybook/recommended',
+        'prettier',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -27,12 +28,12 @@ module.exports = {
         'unused-imports',
     ],
     rules: {
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
-        indent: [2, 4],
-        'react/jsx-filename-extension': [2, {
-            extensions: ['.js', '.jsx', '.tsx'],
-        }],
+        'react/jsx-filename-extension': [
+            2,
+            {
+                extensions: ['.js', '.jsx', '.tsx'],
+            },
+        ],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'warn',
@@ -44,25 +45,31 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
-        'i18next/no-literal-string': ['error', {
-            markupOnly: true,
-            ignoreAttribute: [
-                'role',
-                'data-testid',
-                'to',
-                'target',
-                'justify',
-                'align',
-                'direction',
-                'gap',
-                'as',
-                'border',
-            ],
-        }],
-        'max-len': ['error', {
-            ignoreComments: true,
-            code: 120,
-        }],
+        'i18next/no-literal-string': [
+            'error',
+            {
+                markupOnly: true,
+                ignoreAttribute: [
+                    'role',
+                    'data-testid',
+                    'to',
+                    'target',
+                    'justify',
+                    'align',
+                    'direction',
+                    'gap',
+                    'as',
+                    'border',
+                ],
+            },
+        ],
+        'max-len': [
+            'error',
+            {
+                ignoreComments: true,
+                code: 120,
+            },
+        ],
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
         'react-hooks/rules-of-hooks': 'error',
@@ -73,32 +80,51 @@ module.exports = {
         'react/jsx-no-useless-fragment': 'off',
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
-        'danimaxi54-plugin-new/path-checker': ['error', {
-            alias: '@',
-        }],
-        'danimaxi54-plugin-new/public-api-imports': ['error', {
-            alias: '@',
-            testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
-        }],
-        'danimaxi54-plugin-new/layer-imports': ['error', {
-            alias: '@',
-            ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
-        }],
+        'danimaxi54-plugin-new/path-checker': [
+            'error',
+            {
+                alias: '@',
+            },
+        ],
+        'danimaxi54-plugin-new/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: [
+                    '**/*.test.*',
+                    '**/*.story.*',
+                    '**/StoreDecorator.tsx',
+                ],
+            },
+        ],
+        'danimaxi54-plugin-new/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
         'unused-imports/no-unused-imports': 'error',
-        'react/jsx-newline': ['error', {
-            prevent: false,
-        }],
+        'react/jsx-newline': [
+            'error',
+            {
+                prevent: false,
+            },
+        ],
+        'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
     },
     globals: {
         __IS_DEV__: true,
         __API__: true,
         __PROJECT__: true,
     },
-    overrides: [{
-        files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
-        rules: {
-            'i18next/no-literal-string': 'off',
-            'max-len': 'off',
+    overrides: [
+        {
+            files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+                'max-len': 'off',
+            },
         },
-    }],
+    ],
 };

@@ -2,11 +2,7 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import {
-    ArticleSortField,
-    ArticleView,
-    ArticleType,
-} from '@/entities/Article';
+import { ArticleSortField, ArticleView, ArticleType } from '@/entities/Article';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -20,7 +16,8 @@ import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchA
 import {
     getArticlesPageOrder,
     getArticlesPageSearch,
-    getArticlesPageSort, getArticlesPageType,
+    getArticlesPageSort,
+    getArticlesPageType,
     getArticlesPageView,
 } from '../../model/selectors/articlePageSelectors';
 import { articlesPageActions } from '../../model/slices/articlePageSlice/articlePageSlice';
@@ -37,9 +34,7 @@ const ArticlesPageFilters: FC<ArticlePageFiltersProps> = (props) => {
 
     const view = useSelector(getArticlesPageView);
 
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     const sort = useSelector(getArticlesPageSort);
     const order = useSelector(getArticlesPageOrder);
@@ -93,10 +88,7 @@ const ArticlesPageFilters: FC<ArticlePageFiltersProps> = (props) => {
                     order={order}
                 />
 
-                <ArticleViewSelector
-                    view={view}
-                    onViewClick={onChangeView}
-                />
+                <ArticleViewSelector view={view} onViewClick={onChangeView} />
             </div>
 
             <Card className={cls.search}>
@@ -113,7 +105,6 @@ const ArticlesPageFilters: FC<ArticlePageFiltersProps> = (props) => {
                 className={cls.tabs}
             />
         </div>
-
     );
 };
 

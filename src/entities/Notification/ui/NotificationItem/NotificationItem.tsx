@@ -11,20 +11,14 @@ interface NotificationItemProps {
 }
 
 export const NotificationItem: FC<NotificationItemProps> = (props) => {
-    const {
-        className,
-        item,
-    } = props;
+    const { className, item } = props;
 
     const content = (
         <Card
             className={classNames(cls.NotificationItem, {}, [className])}
             theme={CardTheme.OUTLINED}
         >
-            <Text
-                title={item.title}
-                text={item.description}
-            />
+            <Text title={item.title} text={item.description} />
         </Card>
     );
 
@@ -46,10 +40,7 @@ export const NotificationItem: FC<NotificationItemProps> = (props) => {
             className={classNames(cls.NotificationItem, {}, [className])}
             theme={CardTheme.OUTLINED}
         >
-            <Text
-                title={item.title}
-                text={item.description}
-            />
+            <Text title={item.title} text={item.description} />
         </Card>
     );
 };

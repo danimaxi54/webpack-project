@@ -14,9 +14,7 @@ interface NotificationButtonProps {
 }
 
 export const NotificationButton: FC<NotificationButtonProps> = (props) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -29,14 +27,8 @@ export const NotificationButton: FC<NotificationButtonProps> = (props) => {
     };
 
     const trigger = (
-        <Button
-            theme={ButtonTheme.CLEAR}
-            onClick={onOpenDrawer}
-        >
-            <Icon
-                Svg={NotificationIcon}
-                inverted
-            />
+        <Button theme={ButtonTheme.CLEAR} onClick={onOpenDrawer}>
+            <Icon Svg={NotificationIcon} inverted />
         </Button>
     );
 
@@ -55,10 +47,7 @@ export const NotificationButton: FC<NotificationButtonProps> = (props) => {
             <MobileView>
                 {trigger}
 
-                <Drawer
-                    isOpen={isOpen}
-                    onClose={onCloseDrawer}
-                >
+                <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
                     <NotificationList />
                 </Drawer>
             </MobileView>

@@ -8,7 +8,9 @@ export default {
     component: ArticleList,
 } as ComponentMeta<typeof ArticleList>;
 
-const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
+const Template: ComponentStory<typeof ArticleList> = (args) => (
+    <ArticleList {...args} />
+);
 
 const article = {
     id: '1',
@@ -17,9 +19,7 @@ const article = {
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     createdAt: '26.02.2022',
-    type: [
-        'IT',
-    ],
+    type: ['IT'],
     user: {
         id: '1',
         username: 'danimaxi54',
@@ -89,17 +89,13 @@ const article = {
 
 export const Big = Template.bind({});
 Big.args = {
-    articles: new Array(3).fill(0).map(() => (
-        article
-    )),
+    articles: new Array(3).fill(0).map(() => article),
     view: ArticleView.BIG,
 };
 
 export const Small = Template.bind({});
 Small.args = {
-    articles: new Array(9).fill(0).map(() => (
-        article
-    )),
+    articles: new Array(9).fill(0).map(() => article),
     view: ArticleView.SMALL,
 };
 

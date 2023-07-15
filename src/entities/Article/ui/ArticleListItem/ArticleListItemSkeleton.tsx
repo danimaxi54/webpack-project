@@ -7,18 +7,20 @@ import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemSkeletonProps {
     className?: string;
-    view: ArticleView
+    view: ArticleView;
 }
 
 const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (props) => {
-    const {
-        className,
-        view,
-    } = props;
+    const { className, view } = props;
 
     if (view === ArticleView.BIG) {
         return (
-            <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+            <div
+                className={classNames(cls.ArticleListItem, {}, [
+                    className,
+                    cls[view],
+                ])}
+            >
                 <Card className={cls.card}>
                     <div className={cls.header}>
                         <Skeleton height={30} width={30} border="50%" />
@@ -49,7 +51,12 @@ const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (props) => {
     }
 
     return (
-        <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+        <div
+            className={classNames(cls.ArticleListItem, {}, [
+                className,
+                cls[view],
+            ])}
+        >
             <Card>
                 <div className={cls.imageWrapper}>
                     <Skeleton className={cls.img} width={200} height={200} />

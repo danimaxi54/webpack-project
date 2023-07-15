@@ -10,7 +10,9 @@ export default {
     decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof NotFoundPage>;
 
-const Template: ComponentStory<typeof NotFoundPage> = (args) => <NotFoundPage {...args} />;
+const Template: ComponentStory<typeof NotFoundPage> = (args) => (
+    <NotFoundPage {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

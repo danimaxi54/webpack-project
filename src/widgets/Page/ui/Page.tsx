@@ -1,10 +1,4 @@
-import {
-    FC,
-    MutableRefObject,
-    ReactNode,
-    useRef,
-    UIEvent,
-} from 'react';
+import { FC, MutableRefObject, ReactNode, useRef, UIEvent } from 'react';
 import { useLocation } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
@@ -38,7 +32,9 @@ const Page: FC<PageProps> = (props) => {
 
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
-    const scrollPosition = useAppSelector((state) => getPageScrollByPath(state, pathname));
+    const scrollPosition = useAppSelector((state) =>
+        getPageScrollByPath(state, pathname),
+    );
 
     useInfiniteScroll({
         triggerRef,
@@ -47,10 +43,12 @@ const Page: FC<PageProps> = (props) => {
     });
 
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-        dispatch(pageActions.setScrollPosition({
-            position: e.currentTarget.scrollTop,
-            path: pathname,
-        }));
+        dispatch(
+            pageActions.setScrollPosition({
+                position: e.currentTarget.scrollTop,
+                path: pathname,
+            }),
+        );
     }, 500);
 
     useInitialEffect(() => {
@@ -67,9 +65,7 @@ const Page: FC<PageProps> = (props) => {
         >
             {children}
 
-            {onScrollEnd && (
-                <div className={cls.trigger} ref={triggerRef} />
-            )}
+            {onScrollEnd && <div className={cls.trigger} ref={triggerRef} />}
         </main>
     );
 };

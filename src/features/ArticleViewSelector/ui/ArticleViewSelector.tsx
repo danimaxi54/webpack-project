@@ -26,11 +26,7 @@ const viewTypes = [
 ];
 
 const ArticleViewSelector: FC<ArticleViewSelectorProps> = (props) => {
-    const {
-        className,
-        view,
-        onViewClick,
-    } = props;
+    const { className, view, onViewClick } = props;
 
     const onClick = (newView: ArticleView) => () => {
         onViewClick?.(newView);
@@ -46,7 +42,9 @@ const ArticleViewSelector: FC<ArticleViewSelectorProps> = (props) => {
                 >
                     <Icon
                         Svg={viewType.icon}
-                        className={classNames('', { [cls.notSelected]: viewType.view === view })}
+                        className={classNames('', {
+                            [cls.notSelected]: viewType.view === view,
+                        })}
                     />
                 </Button>
             ))}

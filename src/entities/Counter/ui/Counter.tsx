@@ -16,13 +16,15 @@ const Counter = () => {
 
     return (
         <>
-            <h1 data-testid="value-title">
-                {counterValue}
-            </h1>
+            <h1 data-testid="value-title">{counterValue}</h1>
 
-            <Button onClick={handleIncrement} data-testid="increment-btn">{t('Увеличить')}</Button>
+            <Button onClick={handleIncrement} data-testid="increment-btn">
+                {t('Увеличить')}
+            </Button>
 
-            <Button onClick={handleDecrement} data-testid="decrement-btn">{t('Уменьшить')}</Button>
+            <Button onClick={handleDecrement} data-testid="decrement-btn">
+                {t('Уменьшить')}
+            </Button>
         </>
     );
 };

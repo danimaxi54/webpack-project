@@ -37,12 +37,7 @@ const options = [
 const CountrySelect: FC<CurrencySelectProps> = (props) => {
     const { t } = useTranslation('profile');
 
-    const {
-        className,
-        value,
-        onChange,
-        readonly,
-    } = props;
+    const { className, value, onChange, readonly } = props;
 
     const onChangeHandler = (value: string) => {
         onChange?.(value as Country);

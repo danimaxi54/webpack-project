@@ -1,9 +1,4 @@
-import {
-    MutableRefObject,
-    useEffect,
-    useRef,
-    useState,
-} from 'react';
+import { MutableRefObject, useEffect, useRef, useState } from 'react';
 
 interface UseModalProps {
     onClose?: () => void;
@@ -27,16 +22,14 @@ const ANIMATION_DELAY = 300;
  * @param onClose
  */
 export const useModal = (props: UseModalProps): UseModalResult => {
-    const {
-        onClose,
-        isOpen,
-        animationDelay = ANIMATION_DELAY,
-    } = props;
+    const { onClose, isOpen, animationDelay = ANIMATION_DELAY } = props;
 
     const [isMounted, setIsMounted] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
 
-    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+    const timerRef = useRef() as MutableRefObject<
+        ReturnType<typeof setTimeout>
+    >;
 
     const close = () => {
         if (onClose) {

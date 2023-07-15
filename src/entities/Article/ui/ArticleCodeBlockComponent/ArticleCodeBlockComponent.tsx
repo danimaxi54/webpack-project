@@ -9,14 +9,17 @@ interface ArticleCodeBlockComponentProps {
     block: ArticleCodeBlock;
 }
 
-const ArticleCodeBlockComponent: FC<ArticleCodeBlockComponentProps> = (props) => {
-    const {
-        className,
-        block,
-    } = props;
+const ArticleCodeBlockComponent: FC<ArticleCodeBlockComponentProps> = (
+    props,
+) => {
+    const { className, block } = props;
 
     return (
-        <div className={classNames(cls.ArticleCodeBlockComponent, {}, [className])}>
+        <div
+            className={classNames(cls.ArticleCodeBlockComponent, {}, [
+                className,
+            ])}
+        >
             <Code text={block.code} />
         </div>
     );

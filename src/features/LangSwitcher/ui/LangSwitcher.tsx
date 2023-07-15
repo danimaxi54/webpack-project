@@ -9,10 +9,7 @@ interface LangSwitcherProps {
 }
 
 const LangSwitcher: FC<LangSwitcherProps> = (props) => {
-    const {
-        className,
-        short,
-    } = props;
+    const { className, short } = props;
 
     const { t, i18n } = useTranslation();
 

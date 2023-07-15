@@ -14,12 +14,7 @@ interface StarRatingProps {
 const stars = [1, 2, 3, 4, 5];
 
 export const StarRating: FC<StarRatingProps> = (props) => {
-    const {
-        className,
-        selectedStars = 0,
-        size = 30,
-        onSelect,
-    } = props;
+    const { className, selectedStars = 0, size = 30, onSelect } = props;
 
     const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));

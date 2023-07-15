@@ -15,11 +15,7 @@ const BugButton: FC = () => {
         }
     }, [error]);
 
-    return (
-        <Button onClick={onThrowError}>
-            {t('Бросить ошибку')}
-        </Button>
-    );
+    return <Button onClick={onThrowError}>{t('Бросить ошибку')}</Button>;
 };
 
 export default BugButton;

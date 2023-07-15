@@ -15,19 +15,11 @@ interface CommentListProps {
 const CommentList: FC<CommentListProps> = (props) => {
     const { t } = useTranslation();
 
-    const {
-        className,
-        comments,
-        isLoading,
-    } = props;
+    const { className, comments, isLoading } = props;
 
     if (isLoading) {
         return (
-            <VStack
-                className={classNames('', {}, [className])}
-                gap="16"
-                max
-            >
+            <VStack className={classNames('', {}, [className])} gap="16" max>
                 <CommentCard isLoading />
 
                 <CommentCard isLoading />
@@ -38,20 +30,18 @@ const CommentList: FC<CommentListProps> = (props) => {
     }
 
     return (
-        <VStack
-            className={classNames('', {}, [className])}
-            gap="16"
-            max
-        >
-            {comments?.length
-                ? comments.map((comment) => (
+        <VStack className={classNames('', {}, [className])} gap="16" max>
+            {comments?.length ? (
+                comments.map((comment) => (
                     <CommentCard
                         key={comment.id}
                         comment={comment}
                         isLoading={isLoading}
                     />
                 ))
-                : <Text text={t('Комментарии отсутствуют')} />}
+            ) : (
+                <Text text={t('Комментарии отсутствуют')} />
+            )}
         </VStack>
     );
 };

@@ -13,13 +13,13 @@ const ArticleActionsFormPage: FC<ArticleActionsFormPageProps> = (props) => {
     const { id } = useParams<{ id: string }>();
     const isEdit = Boolean(id);
 
-    const {
-        className,
-    } = props;
+    const { className } = props;
 
     return (
         <Page className={classNames('', {}, [className])}>
-            {isEdit ? t('Редактирование статьи с ID = ') + id : t('Создание новой статьи')}
+            {isEdit
+                ? t('Редактирование статьи с ID = ') + id
+                : t('Создание новой статьи')}
         </Page>
     );
 };

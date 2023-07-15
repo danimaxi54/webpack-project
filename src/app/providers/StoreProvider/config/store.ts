@@ -1,5 +1,8 @@
 import {
-    CombinedState, configureStore, Reducer, ReducersMapObject,
+    CombinedState,
+    configureStore,
+    Reducer,
+    ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { counterReducer } from '@/entities/Counter';
 import { userReducer } from '@/entities/User';
@@ -31,11 +34,12 @@ function createReduxStore(
         reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
-        middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-            thunk: {
-                extraArgument: extraArg,
-            },
-        }).concat(rtkApi.middleware),
+        middleware: (getDefaultMiddleware) =>
+            getDefaultMiddleware({
+                thunk: {
+                    extraArgument: extraArg,
+                },
+            }).concat(rtkApi.middleware),
     });
 
     // @ts-ignore
@@ -46,5 +50,7 @@ function createReduxStore(
 
 export default createReduxStore;
 
-export type RootState = ReturnType<ReturnType<typeof createReduxStore>['getState']>
+export type RootState = ReturnType<
+    ReturnType<typeof createReduxStore>['getState']
+>;
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

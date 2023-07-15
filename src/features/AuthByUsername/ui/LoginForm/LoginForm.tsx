@@ -5,7 +5,9 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { ButtonTheme, Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import { TextTheme, Text } from '@/shared/ui/Text';
-import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import DynamicModuleLoader, {
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
@@ -26,10 +28,7 @@ const initialReducers: ReducersList = {
 };
 
 const LoginForm: FC<LoginFormProps> = (props) => {
-    const {
-        className,
-        onSuccess,
-    } = props;
+    const { className, onSuccess } = props;
 
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
@@ -65,7 +64,10 @@ const LoginForm: FC<LoginFormProps> = (props) => {
                 <Text title={t('Форма авторизации')} />
 
                 {error && (
-                    <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR} />
+                    <Text
+                        text={t('Вы ввели неверный логин или пароль')}
+                        theme={TextTheme.ERROR}
+                    />
                 )}
 
                 <Input
@@ -93,7 +95,6 @@ const LoginForm: FC<LoginFormProps> = (props) => {
                 </Button>
             </HStack>
         </DynamicModuleLoader>
-
     );
 };
 

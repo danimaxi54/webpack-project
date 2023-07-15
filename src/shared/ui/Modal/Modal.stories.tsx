@@ -14,12 +14,14 @@ export const Primary = Template.bind({});
 Primary.args = {
     isOpen: true,
     onClose: () => {},
-    children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis consectetur delectus eos incidunt mollitia nostrum perspiciatis quia quisquam reiciendis voluptatum.',
+    children:
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis consectetur delectus eos incidunt mollitia nostrum perspiciatis quia quisquam reiciendis voluptatum.',
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
     isOpen: true,
-    children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis consectetur delectus eos incidunt mollitia nostrum perspiciatis quia quisquam reiciendis voluptatum.',
+    children:
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis consectetur delectus eos incidunt mollitia nostrum perspiciatis quia quisquam reiciendis voluptatum.',
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];

@@ -9,9 +9,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from '@/shared/ui/Stack';
 import { Loader } from '@/shared/ui/Loader';
-import {
-    fetchCommentsByArticleId,
-} from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
@@ -39,24 +37,14 @@ const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = (props) => {
     });
 
     return (
-        <VStack
-            className={classNames('', {}, [])}
-            gap="16"
-            max
-        >
-            <Text
-                title={t('Комментарии')}
-                size={TextSize.L}
-            />
+        <VStack className={classNames('', {}, [])} gap="16" max>
+            <Text title={t('Комментарии')} size={TextSize.L} />
 
             <Suspense fallback={<Loader />}>
                 <AddCommentForm onSendComment={onSendComment} />
             </Suspense>
 
-            <CommentList
-                comments={comments}
-                isLoading={commentsIsLoading}
-            />
+            <CommentList comments={comments} isLoading={commentsIsLoading} />
         </VStack>
     );
 };

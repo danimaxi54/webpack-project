@@ -8,17 +8,18 @@ interface ArticleImageBlockComponentProps {
     block: ArticleImageBlock;
 }
 
-const ArticleImageBlockComponent: FC<ArticleImageBlockComponentProps> = (props) => {
-    const {
-        className,
-        block,
-    } = props;
+const ArticleImageBlockComponent: FC<ArticleImageBlockComponentProps> = (
+    props,
+) => {
+    const { className, block } = props;
 
     return (
         <div className={classNames('', {}, [className])}>
             <img src={block.src} alt={block.title} />
 
-            {block.title && <Text text={block.title} align={TextAlign.CENTER} />}
+            {block.title && (
+                <Text text={block.title} align={TextAlign.CENTER} />
+            )}
         </div>
     );
 };

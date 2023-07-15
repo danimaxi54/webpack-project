@@ -13,11 +13,7 @@ interface ArticleTypeTabsProps {
 const ArticleTypeTabs: FC<ArticleTypeTabsProps> = (props) => {
     const { t } = useTranslation();
 
-    const {
-        className,
-        value,
-        onTabClick,
-    } = props;
+    const { className, value, onTabClick } = props;
 
     const typeTabs: TabItem<ArticleType>[] = [
         {

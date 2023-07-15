@@ -95,17 +95,10 @@ export const RatingCard: FC<RatingCardProps> = (props) => {
                         lazy
                         onClose={onClickOutsideModal}
                     >
-                        <VStack
-                            gap="32"
-                            max
-                        >
+                        <VStack gap="32" max>
                             {modalContent}
 
-                            <HStack
-                                max
-                                gap="16"
-                                justify="end"
-                            >
+                            <HStack max gap="16" justify="end">
                                 <Button
                                     theme={ButtonTheme.OUTLINE_RED}
                                     onClick={cancelHandler}
@@ -122,16 +115,11 @@ export const RatingCard: FC<RatingCardProps> = (props) => {
                                 </Button>
                             </HStack>
                         </VStack>
-
                     </Modal>
                 </BrowserView>
 
                 <MobileView>
-                    <Drawer
-                        isOpen={isModalOpen}
-                        onClose={cancelHandler}
-                        lazy
-                    >
+                    <Drawer isOpen={isModalOpen} onClose={cancelHandler} lazy>
                         <VStack gap="32">
                             {modalContent}
 

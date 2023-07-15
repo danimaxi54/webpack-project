@@ -17,13 +17,7 @@ interface ArticleSortSelectorProps {
 const ArticleSortSelector: FC<ArticleSortSelectorProps> = (props) => {
     const { t } = useTranslation('articles');
 
-    const {
-        className,
-        onChangeSort,
-        sort,
-        onChangeOrder,
-        order,
-    } = props;
+    const { className, onChangeSort, sort, onChangeOrder, order } = props;
 
     const orderOptions: SelectOption<SortOrder>[] = [
         {
@@ -44,7 +38,8 @@ const ArticleSortSelector: FC<ArticleSortSelectorProps> = (props) => {
         {
             value: ArticleSortField.TITLE,
             content: t('названию'),
-        }, {
+        },
+        {
             value: ArticleSortField.VIEWS,
             content: t('просмотрам'),
         },
