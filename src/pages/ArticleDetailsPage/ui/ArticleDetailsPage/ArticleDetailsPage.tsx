@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from '@/entities/Article';
 
 import DynamicModuleLoader, {
@@ -12,21 +13,26 @@ import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComm
 import ArticleDetailsPageHeader from '../ArticleDetailsPageHeader/ui/ArticleDetailsPageHeader';
 import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleRating } from '@/features/articleRating';
-import { getFeatureFlag } from '@/shared/lib/features';
-import { Counter } from '@/entities/Counter';
+import { toggleFeatures } from '@/shared/lib/features/toggleFeatures';
+import { Card } from '@/shared/ui/Card';
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage: FC = () => {
+    const { t } = useTranslation();
     const { id } = useParams<{ id: string }>();
-    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
-    const isCounterEnabled = getFeatureFlag('isCounterEnabled');
 
     if (!id) {
         return null;
     }
+
+    const articleRatingCard = toggleFeatures({
+        name: 'isArticleRatingEnabled',
+        on: () => <ArticleRating articleId={id} />,
+        off: () => <Card>{t('Оценка статей скоро появится')}</Card>,
+    });
 
     return (
         <DynamicModuleLoader reducers={reducers}>
@@ -36,9 +42,7 @@ const ArticleDetailsPage: FC = () => {
 
                     <ArticleDetails id={id} />
 
-                    {isCounterEnabled && <Counter />}
-
-                    {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+                    {articleRatingCard}
 
                     <ArticleRecommendationsList />
 
