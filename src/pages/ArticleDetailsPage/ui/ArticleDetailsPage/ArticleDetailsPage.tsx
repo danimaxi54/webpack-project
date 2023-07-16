@@ -12,6 +12,8 @@ import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComm
 import ArticleDetailsPageHeader from '../ArticleDetailsPageHeader/ui/ArticleDetailsPageHeader';
 import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleRating } from '@/features/articleRating';
+import { getFeatureFlag } from '@/shared/lib/features';
+import { Counter } from '@/entities/Counter';
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,
@@ -19,6 +21,8 @@ const reducers: ReducersList = {
 
 const ArticleDetailsPage: FC = () => {
     const { id } = useParams<{ id: string }>();
+    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
+    const isCounterEnabled = getFeatureFlag('isCounterEnabled');
 
     if (!id) {
         return null;
@@ -32,7 +36,9 @@ const ArticleDetailsPage: FC = () => {
 
                     <ArticleDetails id={id} />
 
-                    <ArticleRating articleId={id} />
+                    {isCounterEnabled && <Counter />}
+
+                    {isArticleRatingEnabled && <ArticleRating articleId={id} />}
 
                     <ArticleRecommendationsList />
 

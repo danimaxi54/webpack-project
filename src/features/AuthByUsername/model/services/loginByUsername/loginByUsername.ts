@@ -23,6 +23,10 @@ export const loginByUsername = createAsyncThunk<
             throw new Error();
         }
 
+        // if (featureEnabled) {
+        //     // todo
+        // }
+
         localStorage.setItem(
             USER_LOCALSTORAGE_KEY,
             JSON.stringify(response.data),
