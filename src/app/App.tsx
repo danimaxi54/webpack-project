@@ -42,11 +42,13 @@ const App = () => {
             off={
                 <div className={classNames('app', {}, [theme])}>
                     <Suspense fallback="">
-                        <MainLayout
-                            header={<Navbar />}
-                            sidebar={<Sidebar />}
-                            content={<AppRouter />}
-                        />
+                        <Navbar />
+
+                        <div className="content-page">
+                            <Sidebar />
+
+                            <AppRouter />
+                        </div>
                     </Suspense>
                 </div>
             }
