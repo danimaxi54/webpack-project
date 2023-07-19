@@ -13,8 +13,8 @@ import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComm
 import ArticleDetailsPageHeader from '../ArticleDetailsPageHeader/ui/ArticleDetailsPageHeader';
 import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleRating } from '@/features/articleRating';
-import { toggleFeatures } from '@/shared/lib/features/toggleFeatures';
 import { Card } from '@/shared/ui/Card';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,
@@ -28,12 +28,6 @@ const ArticleDetailsPage: FC = () => {
         return null;
     }
 
-    const articleRatingCard = toggleFeatures({
-        name: 'isArticleRatingEnabled',
-        on: () => <ArticleRating articleId={id} />,
-        off: () => <Card>{t('Оценка статей скоро появится')}</Card>,
-    });
-
     return (
         <DynamicModuleLoader reducers={reducers}>
             <Page>
@@ -42,7 +36,11 @@ const ArticleDetailsPage: FC = () => {
 
                     <ArticleDetails id={id} />
 
-                    {articleRatingCard}
+                    <ToggleFeatures
+                        feature="isArticleRatingEnabled"
+                        on={<ArticleRating articleId={id} />}
+                        off={<Card>{t('Оценка статей скоро появится')}</Card>}
+                    />
 
                     <ArticleRecommendationsList />
 

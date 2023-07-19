@@ -28,6 +28,7 @@
         "prepare": "husky install",
         "generate:slice": "node ./scripts/createSlice/index.js",
         "test:e2e": "cypress open",
+        "remove-feature": "ts-node ./scripts/remove-feature.ts",
         "postinstall": "node ./scripts/clear-cache.js"
     },
     "lint-staged": {
