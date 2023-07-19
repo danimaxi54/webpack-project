@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { TextAlign, Text } from '@/shared/ui/Text';
+import { TextAlign, Text } from '@/shared/ui/deprecated/Text';
 import { ArticleImageBlock } from '../../model/types/article';
 
 interface ArticleImageBlockComponentProps {
