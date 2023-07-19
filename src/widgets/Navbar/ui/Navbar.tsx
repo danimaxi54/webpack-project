@@ -5,13 +5,14 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { ButtonTheme, Button } from '@/shared/ui/Button';
 import { LoginModal } from '@/features/AuthByUsername';
 import { getUserAuthData } from '@/entities/User';
-import { TextTheme, Text } from '@/shared/ui/Text';
-import { AppLinkTheme, AppLink } from '@/shared/ui/AppLink';
+import cls from './Navbar.module.scss';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Text, TextTheme } from '@/shared/ui/Text';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
+import { getRouteArticleCreate } from '@/shared/const/router';
 import { HStack } from '@/shared/ui/Stack';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
-import cls from './Navbar.module.scss';
-import { getRouteArticleCreate } from '@/shared/const/router';
 
 interface NavbarProps {
     className?: string;
@@ -36,27 +37,45 @@ const Navbar: FC<NavbarProps> = (props) => {
 
     if (authData) {
         return (
-            <header className={classNames(cls.Navbar, {}, [className])}>
-                <Text
-                    className={cls.appName}
-                    title={t('danimaxi54 App')}
-                    theme={TextTheme.INVERTED}
-                />
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={
+                    <header
+                        className={classNames(cls.NavbarRedesigned, {}, [
+                            className,
+                        ])}
+                    >
+                        <HStack className={cls.actions} gap="16">
+                            <NotificationButton />
 
-                <AppLink
-                    to={getRouteArticleCreate()}
-                    theme={AppLinkTheme.SECONDARY}
-                    className={cls.createArticleLink}
-                >
-                    {t('Создать статью')}
-                </AppLink>
+                            <AvatarDropdown />
+                        </HStack>
+                    </header>
+                }
+                off={
+                    <header className={classNames(cls.Navbar, {}, [className])}>
+                        <Text
+                            className={cls.appName}
+                            title={t('danimaxi54 App')}
+                            theme={TextTheme.INVERTED}
+                        />
 
-                <HStack className={cls.actions} gap="16">
-                    <NotificationButton />
+                        <AppLink
+                            to={getRouteArticleCreate()}
+                            theme={AppLinkTheme.SECONDARY}
+                            className={cls.createArticleLink}
+                        >
+                            {t('Создать статью')}
+                        </AppLink>
 
-                    <AvatarDropdown />
-                </HStack>
-            </header>
+                        <HStack className={cls.actions} gap="16">
+                            <NotificationButton />
+
+                            <AvatarDropdown />
+                        </HStack>
+                    </header>
+                }
+            />
         );
     }
 

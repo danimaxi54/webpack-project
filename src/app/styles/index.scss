@@ -18,9 +18,23 @@ li {
     list-style-type: none;
 }
 
+.app,
+.app_modal,
+.app_drawer {
+    font: var(--font-m);
+    color: var(--secondary-color);
+}
+
 .app {
     min-height: 100vh;
     background: var(--bg-color);
+}
+
+.app_redesigned {
+    min-height: 100vh;
+    background: var(--bg-redesigned);
+    font: var(--font-m-redesigned);
+    color: var(--text-redesigned);
 }
 
 .content-page {
