@@ -3,19 +3,27 @@ import { useSelector } from 'react-redux';
 import { AppRouter } from './providers/router';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
-import { getUserInited, userActions } from '@/entities/User';
+import { getUserInited, initAuthData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { PageLoader } from '@/widgets/PageLoader';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 const App = () => {
+    const { theme } = useTheme();
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
 
     useEffect(() => {
-        dispatch(userActions.initAuthData());
+        dispatch(initAuthData());
     }, []);
 
+    if (!inited) {
+        return <PageLoader />;
+    }
+
     return (
-        <div className="app">
+        <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
                 <Navbar />
 
