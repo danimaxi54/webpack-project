@@ -20,3 +20,30 @@
         transition: 0.2s opacity;
     }
 }
+
+.itemRedesigned {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 16px;
+}
+
+.collapsedRedesigned {
+    padding: 0 8px;
+
+    .link {
+        margin: 0;
+        width: 0;
+        opacity: 0;
+    }
+}
+
+.active {
+    border-left: 2px solid var(--accent-redesigned);
+    background:
+        linear-gradient(
+            88deg,
+            rgb(29 89 255 / 30%) 0%,
+            rgb(94 211 243 / 0%) 100%
+        );
+}
