@@ -1,5 +1,4 @@
 import { FC, ReactElement } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './MainLayout.module.scss';
 
@@ -14,8 +13,6 @@ interface MainLayoutProps {
 export const MainLayout: FC<MainLayoutProps> = (props) => {
     const { className, content, toolbar, header, sidebar } = props;
 
-    const { t } = useTranslation();
-
     return (
         <div className={classNames(cls.MainLayout, {}, [className])}>
             <div className={cls.sidebar}>{sidebar}</div>
@@ -23,7 +20,7 @@ export const MainLayout: FC<MainLayoutProps> = (props) => {
             <div className={cls.content}>{content}</div>
 
             <div className={cls.rightbar}>
-                <div className={cls.header}>{header}</div>
+                {header}
 
                 <div className={cls.toolbar}>{toolbar}</div>
             </div>

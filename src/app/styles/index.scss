@@ -1,38 +1,24 @@
 @import "reset";
-@import "./variables/global";
-@import "./themes/light";
-@import "./themes/dark";
-@import "./themes/orange";
-
-body {
-    font: var(--font-m);
-    color: var(--secondary-color);
-}
-
-img {
-    display: block;
-    max-width: 100%;
-}
-
-li {
-    list-style-type: none;
-}
+@import "variables/global";
+@import "themes/light";
+@import "themes/dark";
+@import "themes/orange";
 
 .app,
 .app_modal,
 .app_drawer {
     font: var(--font-m);
-    color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 .app {
-    min-height: 100vh;
     background: var(--bg-color);
+    min-height: 100vh;
 }
 
 .app_redesigned {
-    min-height: 100vh;
     background: var(--bg-redesigned);
+    min-height: 100vh;
     font: var(--font-m-redesigned);
     color: var(--text-redesigned);
 }
@@ -42,16 +28,16 @@ li {
 }
 
 *::-webkit-scrollbar {
-    width: 12px;
+    width: 12px;               /* ширина scrollbar */
     height: 8px;
 }
 
 *::-webkit-scrollbar-track {
-    background: var(--card-bg);
+    background: var(--card-bg);        /* цвет дорожки */
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: var(--inverted-primary-color);
-    border-radius: 20px;
-    border: 2px solid var(--primary-color);
+    background-color: var(--inverted-primary-color);    /* цвет плашки */
+    border-radius: 20px;       /* закругления плашки */
+    border: 2px solid var(--primary-color);  /* padding вокруг плашки */
 }
