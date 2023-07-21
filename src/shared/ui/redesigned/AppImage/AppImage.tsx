@@ -5,6 +5,8 @@ import {
     useLayoutEffect,
     useState,
 } from 'react';
+import cls from './AppImage.module.scss';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
     className?: string;
@@ -12,10 +14,6 @@ interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
     errorFallback?: ReactElement;
 }
 
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- * */
 export const AppImage: FC<AppImageProps> = (props) => {
     const {
         className,
@@ -49,5 +47,12 @@ export const AppImage: FC<AppImageProps> = (props) => {
         return errorFallback;
     }
 
-    return <img className={className} src={src} alt={alt} {...otherProps} />;
+    return (
+        <img
+            className={classNames(cls.AppImage, {}, [className])}
+            src={src}
+            alt={alt}
+            {...otherProps}
+        />
+    );
 };

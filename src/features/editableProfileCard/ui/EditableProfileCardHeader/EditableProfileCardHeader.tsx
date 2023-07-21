@@ -10,7 +10,7 @@ import { updateProfileData } from '../../model/services/updateProfileData/update
 import { profileActions } from '../../model/slice/profileSlice';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
-import { HStack } from '../../../../shared/ui/deprecated/Stack/HStack/HStack';
+import { HStack } from '../../../../shared/ui/redesigned/Stack/HStack/HStack';
 
 interface EditableProfileCardHeaderProps {
     className?: string;

@@ -16,7 +16,7 @@ import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLogi
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 export interface LoginFormProps {
     className?: string;

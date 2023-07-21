@@ -87,5 +87,3 @@ export const Dropdown: FC<DropdownProps> = (props) => {
         </Menu>
     );
 };
-
-export default Dropdown;

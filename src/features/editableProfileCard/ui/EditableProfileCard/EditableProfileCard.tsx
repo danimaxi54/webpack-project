@@ -11,7 +11,7 @@ import { ProfileCard } from '@/entities/Profile';
 import DynamicModuleLoader, {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import EditableProfileCardHeader from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
