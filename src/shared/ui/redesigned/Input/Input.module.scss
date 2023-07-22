@@ -3,7 +3,7 @@
     align-items: center;
     border-radius: 48px;
     border: 2px solid var(--icon-redesigned);
-    height: 32px;
+    padding: 8px 16px;
     width: 100%;
 }
 
@@ -21,6 +21,10 @@
     &::placeholder {
         color: var(--hint-redesigned);
     }
+}
+
+.withAddon {
+    padding: 0;
 }
 
 .focused {
@@ -47,4 +51,16 @@
 
 .addonRight {
     padding-right: 8px;
+}
+
+.s {
+    height: 32px;
+}
+
+.m {
+    height: 38px;
+}
+
+.l {
+    height: 44px;
 }
