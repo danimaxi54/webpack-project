@@ -63,16 +63,16 @@ const ArticleSortSelector: FC<ArticleSortSelectorProps> = (props) => {
                     <VStack gap="8">
                         <Text text={t('Сортировать по')} />
 
-                        <ListBox<SortOrder>
-                            items={orderOptions}
-                            value={order}
-                            onChange={onChangeOrder}
-                        />
-
                         <ListBox<ArticleSortField>
                             items={sortFieldOptions}
                             value={sort}
                             onChange={onChangeSort}
+                        />
+
+                        <ListBox<SortOrder>
+                            items={orderOptions}
+                            value={order}
+                            onChange={onChangeOrder}
                         />
                     </VStack>
                 </div>

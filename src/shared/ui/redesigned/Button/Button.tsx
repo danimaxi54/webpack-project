@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
@@ -13,6 +13,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     size?: ButtonSize;
     disabled?: boolean;
     fullWidth?: boolean;
+    addonLeft?: ReactNode;
+    addonRight?: ReactNode;
 
     'data-testid'?: string;
 }
@@ -26,6 +28,8 @@ export const Button: FC<ButtonProps> = (props) => {
         size = 'm',
         disabled,
         fullWidth,
+        addonLeft,
+        addonRight,
         ...otherProps
     } = props;
 
@@ -33,6 +37,7 @@ export const Button: FC<ButtonProps> = (props) => {
         [cls.square]: square,
         [cls.disabled]: disabled,
         [cls.fullWidth]: fullWidth,
+        [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
     };
 
     return (
@@ -46,7 +51,11 @@ export const Button: FC<ButtonProps> = (props) => {
             disabled={disabled}
             {...otherProps}
         >
+            {addonLeft && <div className={cls.addonLeft}>{addonLeft}</div>}
+
             {children}
+
+            {addonRight && <div className={cls.addonRight}>{addonRight}</div>}
         </button>
     );
 };

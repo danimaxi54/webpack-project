@@ -1,6 +1,10 @@
 .InputWrapper {
     display: flex;
     align-items: center;
+    border-radius: 48px;
+    border: 2px solid var(--icon-redesigned);
+    height: 32px;
+    width: 100%;
 }
 
 .placeholder {
@@ -9,46 +13,38 @@
 
 .input {
     width: 100%;
-    background: transparent;
     border: none;
     outline: none;
-    color: transparent;
-    text-shadow: 0 0 0 var(--primary-color);
+    color: var(--text-redesigned);
+    background: none;
 
-    &:focus {
-        outline: none;
+    &::placeholder {
+        color: var(--hint-redesigned);
     }
 }
 
-.caretWrapper {
-    flex-grow: 1;
-    position: relative;
-}
+.focused {
+    border: 2px solid var(--accent-redesigned);
 
-.caret {
-    width: 9px;
-    height: 3px;
-    background: var(--primary-color);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    animation: blink 0.7s forwards infinite;
+    .addonLeft svg,
+    .addonRight svg {
+        color: var(--accent-redesigned);
+    }
 }
 
 .readonly {
     opacity: 0.7;
 }
 
-@keyframes blink {
-    0% {
-        opacity: 0;
-    }
+.addonLeft,
+.addonRight {
+    display: flex;
+}
 
-    50% {
-        opacity: 0.01;
-    }
+.addonLeft {
+    padding-left: 8px;
+}
 
-    100% {
-        opacity: 1;
-    }
+.addonRight {
+    padding-right: 8px;
 }
