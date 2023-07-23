@@ -45,7 +45,7 @@ export const Card: FC<CardProps> = (props) => {
                     [cls.max]: max,
                     [cls.fullHeight]: fullHeight,
                 },
-                [className, cls[variant], cls[paddingClass], cls[border]],
+                [className, cls[variant], paddingClass, cls[border]],
             )}
             {...otherProps}
         >

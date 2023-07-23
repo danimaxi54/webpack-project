@@ -75,7 +75,9 @@ export const Button = memo((props: ButtonProps) => {
             {...otherProps}
         >
             <div className={cls.addonLeft}>{addonLeft}</div>
+
             {children}
+
             <div className={cls.addonRight}>{addonRight}</div>
         </button>
     );
