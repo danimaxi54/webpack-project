@@ -8,14 +8,7 @@ const recommendationsApi = rtkApi.injectEndpoints({
                 url: '/articles',
                 params: {
                     _limit: limit,
-                },
-            }),
-        }),
-        createArticleRecommendations: build.mutation<Article[], number>({
-            query: (limit) => ({
-                url: '/articles',
-                params: {
-                    _limit: limit,
+                    _expand: 'user',
                 },
             }),
         }),
@@ -24,5 +17,3 @@ const recommendationsApi = rtkApi.injectEndpoints({
 
 export const useArticleRecommendationsList =
     recommendationsApi.useGetArticleRecommendationsListQuery;
-export const useCreateRecommendations =
-    recommendationsApi.useCreateArticleRecommendationsMutation;

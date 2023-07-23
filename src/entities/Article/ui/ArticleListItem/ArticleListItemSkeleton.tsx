@@ -13,8 +13,16 @@ interface ArticleListItemSkeletonProps {
     view: ArticleView;
 }
 
-const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (props) => {
+export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (
+    props,
+) => {
     const { className, view } = props;
+
+    const mainClass = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => cls.ArticleListItemRedesigned,
+        off: () => cls.ArticleListItem,
+    });
 
     const Skeleton = toggleFeatures({
         name: 'isAppRedesigned',
@@ -29,15 +37,10 @@ const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (props) => {
 
     if (view === ArticleView.BIG) {
         return (
-            <div
-                className={classNames(cls.ArticleListItem, {}, [
-                    className,
-                    cls[view],
-                ])}
-            >
+            <div className={classNames(mainClass, {}, [className, cls[view]])}>
                 <Card className={cls.card}>
                     <div className={cls.header}>
-                        <Skeleton height={30} width={30} border="50%" />
+                        <Skeleton border="50%" height={30} width={30} />
 
                         <Skeleton
                             width={150}
@@ -65,25 +68,18 @@ const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = (props) => {
     }
 
     return (
-        <div
-            className={classNames(cls.ArticleListItem, {}, [
-                className,
-                cls[view],
-            ])}
-        >
-            <Card>
+        <div className={classNames(mainClass, {}, [className, cls[view]])}>
+            <Card className={cls.card}>
                 <div className={cls.imageWrapper}>
-                    <Skeleton className={cls.img} width={200} height={200} />
+                    <Skeleton width={200} height={200} className={cls.img} />
                 </div>
 
                 <div className={cls.infoWrapper}>
                     <Skeleton width={130} height={16} />
                 </div>
 
-                <Skeleton width={150} className={cls.title} />
+                <Skeleton width={150} height={16} className={cls.title} />
             </Card>
         </div>
     );
 };
-
-export default ArticleListItemSkeleton;
