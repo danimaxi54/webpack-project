@@ -4,7 +4,7 @@ import cls from './Card.module.scss';
 
 export type CardVariant = 'normal' | 'outlined' | 'light';
 export type CardPadding = '0' | '8' | '16' | '24';
-export type CardBorder = 'round' | 'normal';
+export type CardBorder = 'round' | 'normal' | 'partial';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
@@ -13,7 +13,6 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
     max?: boolean;
     padding?: CardPadding;
     border?: CardBorder;
-    fullWidth?: boolean;
     fullHeight?: boolean;
 }
 
@@ -32,7 +31,6 @@ export const Card: FC<CardProps> = (props) => {
         max,
         padding = '8',
         border = 'normal',
-        fullWidth,
         fullHeight,
         ...otherProps
     } = props;
@@ -46,7 +44,6 @@ export const Card: FC<CardProps> = (props) => {
                 {
                     [cls.max]: max,
                     [cls.fullHeight]: fullHeight,
-                    [cls.fullWidth]: fullWidth,
                 },
                 [className, cls[variant], cls[paddingClass], cls[border]],
             )}

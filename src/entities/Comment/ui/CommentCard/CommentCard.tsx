@@ -64,7 +64,7 @@ const CommentCard: FC<CommentCardProps> = (props) => {
         <ToggleFeatures
             feature="isAppRedesigned"
             on={
-                <Card padding="24" border="round" fullWidth>
+                <Card padding="24" border="partial" max>
                     <VStack
                         data-testid="CommentCard.Content"
                         gap="8"
