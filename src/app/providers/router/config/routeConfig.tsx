@@ -20,8 +20,10 @@ import {
     getRouteMain,
     getRouteNotFound,
     getRouteProfile,
+    getRouteSettings,
 } from '@/shared/const/router';
 import { AppRouteProps } from '@/shared/types/router';
+import { SettingsPage } from '@/pages/SettingsPage';
 
 export const routeConfig: Record<AppRoutes, AppRouteProps> = {
     [AppRoutes.MAIN]: {
@@ -70,5 +72,9 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
     [AppRoutes.NOT_FOUND]: {
         path: getRouteNotFound(),
         element: <NotFoundPage />,
+    },
+    [AppRoutes.SETTINGS]: {
+        path: getRouteSettings(),
+        element: <SettingsPage />,
     },
 };

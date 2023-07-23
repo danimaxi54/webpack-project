@@ -12,7 +12,11 @@ import {
     userActions,
 } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
+import {
+    getRouteAdminPanel,
+    getRouteProfile,
+    getRouteSettings,
+} from '@/shared/const/router';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Dropdown } from '@/shared/ui/redesigned/Popups';
 
@@ -55,6 +59,10 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = (props) => {
         {
             content: t('Выйти'),
             onClick: onLogout,
+        },
+        {
+            content: t('Настройки'),
+            href: getRouteSettings(),
         },
     ];
 
