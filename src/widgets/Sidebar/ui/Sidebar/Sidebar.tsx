@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { getSidebarItems } from '../../model/selectors/getSidebarItems';
+import { useSidebarItems } from '../../model/selectors/getSidebarItems';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
@@ -20,7 +19,7 @@ interface SidebarProps {
 const Sidebar: FC<SidebarProps> = (props) => {
     const { className } = props;
 
-    const sidebarItemsList = useSelector(getSidebarItems);
+    const sidebarItemsList = useSidebarItems();
 
     const [collapsed, setCollapsed] = useState(false);
 

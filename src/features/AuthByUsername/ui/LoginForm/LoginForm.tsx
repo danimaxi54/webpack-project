@@ -24,6 +24,7 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
 
 export interface LoginFormProps {
     className?: string;
@@ -44,6 +45,8 @@ const LoginForm: FC<LoginFormProps> = (props) => {
     const isLoading = useSelector(getLoginIsLoading);
     const error = useSelector(getLoginError);
 
+    const forceUpdate = useForceUpdate();
+
     const onChangeUsername = (value: string) => {
         dispatch(loginActions.setUsername(value));
     };
@@ -57,6 +60,7 @@ const LoginForm: FC<LoginFormProps> = (props) => {
 
         if (result.meta.requestStatus === 'fulfilled') {
             onSuccess();
+            forceUpdate();
         }
     };
 

@@ -17,7 +17,9 @@ const App = () => {
     const inited = useSelector(getUserInited);
 
     useEffect(() => {
-        dispatch(initAuthData());
+        if (!inited) {
+            dispatch(initAuthData());
+        }
     }, []);
 
     if (!inited) {
