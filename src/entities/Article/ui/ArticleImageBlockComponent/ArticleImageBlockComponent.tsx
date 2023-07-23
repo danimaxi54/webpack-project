@@ -1,27 +1,36 @@
-import { FC } from 'react';
+import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { TextAlign, Text } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextAlign } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { ArticleImageBlock } from '../../model/types/article';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface ArticleImageBlockComponentProps {
     className?: string;
     block: ArticleImageBlock;
 }
 
-const ArticleImageBlockComponent: FC<ArticleImageBlockComponentProps> = (
-    props,
-) => {
-    const { className, block } = props;
+export const ArticleImageBlockComponent = memo(
+    (props: ArticleImageBlockComponentProps) => {
+        const { className, block } = props;
 
-    return (
-        <div className={classNames('', {}, [className])}>
-            <img src={block.src} alt={block.title} />
+        return (
+            <div className={classNames('', {}, [className])}>
+                <img src={block.src} alt={block.title} />
 
-            {block.title && (
-                <Text text={block.title} align={TextAlign.CENTER} />
-            )}
-        </div>
-    );
-};
-
-export default ArticleImageBlockComponent;
+                {block.title && (
+                    <ToggleFeatures
+                        feature="isAppRedesigned"
+                        on={<Text text={block.title} align="center" />}
+                        off={
+                            <TextDeprecated
+                                text={block.title}
+                                align={TextAlign.CENTER}
+                            />
+                        }
+                    />
+                )}
+            </div>
+        );
+    },
+);

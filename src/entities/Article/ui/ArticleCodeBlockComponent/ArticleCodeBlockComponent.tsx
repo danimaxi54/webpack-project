@@ -1,28 +1,26 @@
-import { FC } from 'react';
+import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Code } from '@/shared/ui/deprecated/Code';
-import { ArticleCodeBlock } from '../../model/types/article';
+import { Code } from '@/shared/ui/redesigned/Code';
 import cls from './ArticleCodeBlockComponent.module.scss';
+import { ArticleCodeBlock } from '../../model/types/article';
 
 interface ArticleCodeBlockComponentProps {
     className?: string;
     block: ArticleCodeBlock;
 }
 
-const ArticleCodeBlockComponent: FC<ArticleCodeBlockComponentProps> = (
-    props,
-) => {
-    const { className, block } = props;
+export const ArticleCodeBlockComponent = memo(
+    (props: ArticleCodeBlockComponentProps) => {
+        const { className, block } = props;
 
-    return (
-        <div
-            className={classNames(cls.ArticleCodeBlockComponent, {}, [
-                className,
-            ])}
-        >
-            <Code text={block.code} />
-        </div>
-    );
-};
-
-export default ArticleCodeBlockComponent;
+        return (
+            <div
+                className={classNames(cls.ArticleCodeBlockComponent, {}, [
+                    className,
+                ])}
+            >
+                <Code text={block.code} />
+            </div>
+        );
+    },
+);

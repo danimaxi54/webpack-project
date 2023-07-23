@@ -14,7 +14,7 @@ import { Card } from '@/shared/ui/deprecated/Card';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import ArticleTextBlockComponent from '../../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleTextBlockComponent } from '../../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
