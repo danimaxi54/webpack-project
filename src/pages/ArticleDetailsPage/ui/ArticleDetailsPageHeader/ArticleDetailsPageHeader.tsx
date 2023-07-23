@@ -1,41 +1,42 @@
-import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { FC, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ButtonTheme, Button } from '@/shared/ui/deprecated/Button';
 import { getArticleDetailsData } from '@/entities/Article';
 import { HStack } from '@/shared/ui/redesigned/Stack';
-import { getCanEditArticle } from '../../../model/selectors/article';
+import { getCanEditArticle } from '../../model/selectors/article';
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;
 }
 
-const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = (props) => {
+export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = (
+    props,
+) => {
+    const { className } = props;
     const { t } = useTranslation();
-
+    const navigate = useNavigate();
     const canEdit = useSelector(getCanEditArticle);
     const article = useSelector(getArticleDetailsData);
 
-    const { className } = props;
-
-    const navigate = useNavigate();
-
-    const onBackToList = () => {
+    const onBackToList = useCallback(() => {
         navigate(getRouteArticles());
-    };
+    }, [navigate]);
 
-    const onEditArticle = () => {
-        navigate(getRouteArticleEdit(article?.id as string));
-    };
+    const onEditArticle = useCallback(() => {
+        if (article) {
+            navigate(getRouteArticleEdit(article.id));
+        }
+    }, [article, navigate]);
 
     return (
         <HStack
-            className={classNames('', {}, [className])}
-            justify="between"
             max
+            justify="between"
+            className={classNames('', {}, [className])}
         >
             <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
                 {t('Назад к списку')}
@@ -49,5 +50,3 @@ const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = (props) => {
         </HStack>
     );
 };
-
-export default ArticleDetailsPageHeader;

@@ -8,11 +8,13 @@ export type CardBorder = 'round' | 'normal';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
+    children: ReactNode;
     variant?: CardVariant;
     max?: boolean;
     padding?: CardPadding;
     border?: CardBorder;
-    children: ReactNode;
+    fullWidth?: boolean;
+    fullHeight?: boolean;
 }
 
 const mapPaddingToClass: Record<CardPadding, string> = {
@@ -25,24 +27,29 @@ const mapPaddingToClass: Record<CardPadding, string> = {
 export const Card: FC<CardProps> = (props) => {
     const {
         className,
-        variant = 'normal',
         children,
+        variant = 'normal',
         max,
         padding = '8',
         border = 'normal',
+        fullWidth,
+        fullHeight,
         ...otherProps
     } = props;
 
-    const paddingsClass = mapPaddingToClass[padding];
+    const paddingClass = mapPaddingToClass[padding];
 
     return (
         <div
-            className={classNames(cls.Card, { [cls.max]: max }, [
-                className,
-                cls[variant],
-                paddingsClass,
-                cls[border],
-            ])}
+            className={classNames(
+                cls.Card,
+                {
+                    [cls.max]: max,
+                    [cls.fullHeight]: fullHeight,
+                    [cls.fullWidth]: fullWidth,
+                },
+                [className, cls[variant], cls[paddingClass], cls[border]],
+            )}
             {...otherProps}
         >
             {children}

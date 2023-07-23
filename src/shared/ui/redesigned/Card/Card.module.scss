@@ -7,20 +7,20 @@
 }
 
 .normal {
-    background: var(--dark-bg-redesigned);
     border-radius: 12px;
+    background: var(--dark-bg-redesigned);
 }
 
 .light {
     background: var(--light-bg-redesigned);
 }
 
-.round {
-    border-radius: 40px;
-}
-
 .outlined {
     border: 1px solid var(--accent-redesigned);
+}
+
+.round {
+    border-radius: 40px;
 }
 
 .max {
@@ -41,4 +41,12 @@
 
 .gap_24 {
     padding: 24px;
+}
+
+.fullHeight {
+    height: 100%;
+}
+
+.fullWidth {
+    width: 100%;
 }

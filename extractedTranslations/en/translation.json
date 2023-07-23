@@ -10,6 +10,8 @@
   "decrement": "decrement",
   "increment": "increment",
   "throw error": "throw error",
+  "{{count}} просмотров": "",
+  "{{count}} просмотров_plural": "",
   "Админка": "",
   "Айти": "Айти",
   "Бросить ошибку": "Бросить ошибку",
