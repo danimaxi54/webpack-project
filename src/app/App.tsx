@@ -10,6 +10,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 
 const App = () => {
     const { theme } = useTheme();
@@ -23,7 +24,20 @@ const App = () => {
     }, []);
 
     if (!inited) {
-        return <PageLoader />;
+        return (
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={
+                    <div
+                        id="app"
+                        className={classNames('app_redesigned', {}, [theme])}
+                    >
+                        <AppLoaderLayout />
+                    </div>
+                }
+                off={<PageLoader />}
+            />
+        );
     }
 
     return (
