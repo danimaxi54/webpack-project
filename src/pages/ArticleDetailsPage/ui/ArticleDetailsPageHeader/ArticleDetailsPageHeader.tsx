@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { FC, useCallback } from 'react';
+import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
@@ -22,15 +22,15 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = (
     const canEdit = useSelector(getCanEditArticle);
     const article = useSelector(getArticleDetailsData);
 
-    const onBackToList = useCallback(() => {
+    const onBackToList = () => {
         navigate(getRouteArticles());
-    }, [navigate]);
+    };
 
-    const onEditArticle = useCallback(() => {
+    const onEditArticle = () => {
         if (article) {
             navigate(getRouteArticleEdit(article.id));
         }
-    }, [article, navigate]);
+    };
 
     return (
         <HStack

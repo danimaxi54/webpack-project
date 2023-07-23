@@ -1,5 +1,5 @@
-import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { RatingCard } from '@/entities/Rating';
 import {
@@ -16,16 +16,14 @@ export interface ArticleRatingProps {
 
 const ArticleRating: FC<ArticleRatingProps> = (props) => {
     const { className, articleId } = props;
-
     const { t } = useTranslation();
     const userData = useSelector(getUserAuthData);
-    const { isLoading, data } = useGetArticleRating({
+
+    const { data, isLoading } = useGetArticleRating({
         articleId,
         userId: userData?.id ?? '',
     });
     const [rateArticleMutation] = useRateArticle();
-
-    const rating = data?.[0];
 
     const handleRateArticle = (starsCount: number, feedback?: string) => {
         try {
@@ -36,33 +34,36 @@ const ArticleRating: FC<ArticleRatingProps> = (props) => {
                 feedback,
             });
         } catch (e) {
+            // handle error
             console.log(e);
         }
-    };
-
-    const onCancel = (starsCount: number) => {
-        handleRateArticle(starsCount);
     };
 
     const onAccept = (starsCount: number, feedback?: string) => {
         handleRateArticle(starsCount, feedback);
     };
 
+    const onCancel = (starsCount: number) => {
+        handleRateArticle(starsCount);
+    };
+
     if (isLoading) {
         return <Skeleton width="100%" height={120} />;
     }
 
+    const rating = data?.[0];
+
     return (
         <RatingCard
+            onCancel={onCancel}
+            onAccept={onAccept}
+            rate={rating?.rate}
             className={className}
             title={t('Оцените статью')}
             feedbackTitle={t(
                 'Оставьте свой отзыв о статье, это поможет улучшить качество',
             )}
             hasFeedback
-            rate={rating?.rate}
-            onCancel={onCancel}
-            onAccept={onAccept}
         />
     );
 };

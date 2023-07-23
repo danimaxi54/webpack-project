@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback, useState } from 'react';
+import { memo, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { Card } from '@/shared/ui/deprecated/Card';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
@@ -35,27 +35,24 @@ export const RatingCard = memo((props: RatingCardProps) => {
     const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
-    const onSelectStars = useCallback(
-        (selectedStarsCount: number) => {
-            setStarsCount(selectedStarsCount);
-            if (hasFeedback) {
-                setIsModalOpen(true);
-            } else {
-                onAccept?.(selectedStarsCount);
-            }
-        },
-        [hasFeedback, onAccept],
-    );
+    const onSelectStars = (selectedStarsCount: number) => {
+        setStarsCount(selectedStarsCount);
+        if (hasFeedback) {
+            setIsModalOpen(true);
+        } else {
+            onAccept?.(selectedStarsCount);
+        }
+    };
 
-    const acceptHandle = useCallback(() => {
+    const acceptHandle = () => {
         setIsModalOpen(false);
         onAccept?.(starsCount, feedback);
-    }, [feedback, onAccept, starsCount]);
+    };
 
-    const cancelHandle = useCallback(() => {
+    const cancelHandle = () => {
         setIsModalOpen(false);
         onCancel?.(starsCount);
-    }, [onCancel, starsCount]);
+    };
 
     const modalContent = (
         <>

@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react';
+import { FC } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import CopyIcon from '@/shared/assets/icons/copy-new.svg';
 import CopyIconNew from '@/shared/assets/icons/copy.svg';
@@ -15,9 +15,9 @@ interface CodeProps {
 export const Code: FC<CodeProps> = (props) => {
     const { className, text } = props;
 
-    const onCopy = useCallback(() => {
+    const onCopy = () => {
         navigator.clipboard.writeText(text);
-    }, [text]);
+    };
 
     return (
         <ToggleFeatures

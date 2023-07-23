@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Card } from '@/shared/ui/redesigned/Card';
@@ -12,11 +11,11 @@ export const AdditionalInfoContainer = () => {
 
     const navigate = useNavigate();
 
-    const onEditArticle = useCallback(() => {
+    const onEditArticle = () => {
         if (article) {
             navigate(getRouteArticleEdit(article.id));
         }
-    }, [article, navigate]);
+    };
 
     if (!article) {
         return null;
