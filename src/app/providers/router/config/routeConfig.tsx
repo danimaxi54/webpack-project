@@ -15,7 +15,7 @@ import {
     getRouteArticleCreate,
     getRouteArticleEdit,
     getRouteArticles,
-    getRouteArticlesDetails,
+    getRouteArticleDetails,
     getRouteForbidden,
     getRouteMain,
     getRouteNotFound,
@@ -43,7 +43,7 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
         authOnly: true,
     },
     [AppRoutes.ARTICLE_DETAILS]: {
-        path: getRouteArticlesDetails(':id'),
+        path: getRouteArticleDetails(':id'),
         element: <ArticleDetailsPage />,
         authOnly: true,
     },

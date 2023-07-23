@@ -1,10 +1,12 @@
+import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+
 import { ArticleView } from '../../model/consts/articleConsts';
-import { Article } from '../../model/types/article';
 import ArticleListItem from './ArticleListItem';
+import { Article } from '../../model/types/article';
 
 export default {
-    title: 'entities/ArticleListItem',
+    title: 'entities/Article/ArticleListItem',
     component: ArticleListItem,
 } as ComponentMeta<typeof ArticleListItem>;
 
@@ -19,12 +21,12 @@ const article = {
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
     createdAt: '26.02.2022',
-    type: ['IT'],
     user: {
         id: '1',
         username: 'danimaxi54',
         avatar: 'https://avatars.githubusercontent.com/u/69904650?s=400&u=2c3a6015db26f57b2f557d1a1ec58bf54a35f573&v=4',
     },
+    type: ['IT', 'SCIENCE', 'POLITICS', 'ECONOMICS'],
     blocks: [
         {
             id: '1',

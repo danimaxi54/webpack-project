@@ -38,6 +38,16 @@
     text-align: center;
 }
 
+.size_s {
+    .title {
+        font: var(--font-m-redesigned);
+    }
+
+    .text {
+        font: var(--font-s-redesigned);
+    }
+}
+
 .size_m {
     .title {
         font: var(--font-l-redesigned);
@@ -58,12 +68,9 @@
     }
 }
 
-.size_s {
-    .title {
-        font: var(--font-s-redesigned);
-    }
-
+.bold {
+    .title,
     .text {
-        font: var(--font-l-redesigned);
+        font-weight: 700;
     }
 }

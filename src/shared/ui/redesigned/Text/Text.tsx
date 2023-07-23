@@ -15,16 +15,16 @@ interface TextProps {
     variant?: TextVariant;
     align?: TextAlign;
     size?: TextSize;
-
+    bold?: boolean;
     'data-testid'?: string;
 }
 
 type HeaderTagType = 'h1' | 'h2' | 'h3';
 
 const mapSizeToClass: Record<TextSize, string> = {
-    s: cls.size_s,
-    m: cls.size_m,
-    l: cls.size_l,
+    s: 'size_s',
+    m: 'size_m',
+    l: 'size_l',
 };
 
 const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
@@ -32,6 +32,7 @@ const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
     m: 'h2',
     l: 'h1',
 };
+
 export const Text: FC<TextProps> = (props) => {
     const {
         className,
@@ -40,22 +41,23 @@ export const Text: FC<TextProps> = (props) => {
         variant = 'primary',
         align = 'left',
         size = 'm',
+        bold,
         'data-testid': dataTestId = 'Text',
     } = props;
 
     const HeaderTag = mapSizeToHeaderTag[size];
     const sizeClass = mapSizeToClass[size];
 
-    const additionalClasses = [
-        className,
-        cls[variant],
-        cls[align],
-        cls[size],
-        sizeClass,
-    ];
+    const additionalClasses = [className, cls[variant], cls[align], sizeClass];
 
     return (
-        <div className={classNames(cls.Text, {}, additionalClasses)}>
+        <div
+            className={classNames(
+                cls.Text,
+                { [cls.bold]: bold },
+                additionalClasses,
+            )}
+        >
             {title && (
                 <HeaderTag
                     className={cls.title}

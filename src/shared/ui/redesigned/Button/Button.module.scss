@@ -1,9 +1,9 @@
 .Button {
-    display: flex;
-    align-items: center;
     cursor: pointer;
     color: var(--text-redesigned);
     padding: 8px 16px;
+    display: flex;
+    align-items: center;
 
     &:hover {
         color: var(--accent-redesigned);
@@ -19,6 +19,15 @@
     padding: 0 16px;
 }
 
+.addonLeft,
+.addonRight {
+    display: flex;
+
+    svg {
+        color: var(--hint-redesigned);
+    }
+}
+
 .clear {
     padding: 0;
     border: none;
@@ -30,7 +39,17 @@
     background: var(--light-bg-redesigned);
     border: none;
     outline: none;
-    border-radius: 35px;
+    border-radius: 34px;
+}
+
+.outline {
+    background: none;
+    border: 1px solid var(--icon-redesigned);
+    border-radius: 34px;
+
+    &:hover {
+        border: 1px solid var(--accent-redesigned);
+    }
 }
 
 .square {
@@ -70,21 +89,4 @@
 
 .fullWidth {
     width: 100%;
-}
-
-.addonLeft,
-.addonRight {
-    display: flex;
-
-    svg {
-        color: var(--hint-redesigned);
-    }
-}
-
-.addonLeft {
-    padding-left: 8px;
-}
-
-.addonRight {
-    padding-right: 8px;
 }
