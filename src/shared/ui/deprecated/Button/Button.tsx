@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, ForwardedRef, forwardRef } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
@@ -32,34 +32,37 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  * Устарел, используем новые компоненты из папки redesigned
  * @deprecated
  * */
-export const Button: FC<ButtonProps> = (props) => {
-    const {
-        className,
-        children,
-        theme = ButtonTheme.OUTLINE,
-        square,
-        size = ButtonSize.M,
-        disabled,
-        fullWidth,
-        ...otherProps
-    } = props;
+export const Button = forwardRef(
+    (props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+        const {
+            className,
+            children,
+            theme = ButtonTheme.OUTLINE,
+            square,
+            size = ButtonSize.M,
+            disabled,
+            fullWidth,
+            ...otherProps
+        } = props;
 
-    const mods: Mods = {
-        [cls[theme]]: true,
-        [cls.square]: square,
-        [cls[size]]: true,
-        [cls.disabled]: disabled,
-        [cls.fullWidth]: fullWidth,
-    };
+        const mods: Mods = {
+            [cls[theme]]: true,
+            [cls.square]: square,
+            [cls[size]]: true,
+            [cls.disabled]: disabled,
+            [cls.fullWidth]: fullWidth,
+        };
 
-    return (
-        <button
-            type="button"
-            className={classNames(cls.Button, mods, [className])}
-            disabled={disabled}
-            {...otherProps}
-        >
-            {children}
-        </button>
-    );
-};
+        return (
+            <button
+                type="button"
+                className={classNames(cls.Button, mods, [className])}
+                disabled={disabled}
+                ref={ref}
+                {...otherProps}
+            >
+                {children}
+            </button>
+        );
+    },
+);
