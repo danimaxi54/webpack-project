@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 import { BuildOptions } from './types/config';
 import { buildPlugins } from './buildPlugins';
 import { buildLoaders } from './buildLoaders';
@@ -20,6 +21,13 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         plugins: buildPlugins(options),
         module: {
             rules: buildLoaders(options),
+        },
+        optimization: isDev ? undefined : {
+            splitChunks: {
+                chunks: 'all',
+                minChunks: 2,
+            },
+            minimizer: [`...`, new CssMinimizerPlugin()]
         },
         resolve: buildResolvers(options),
         devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
